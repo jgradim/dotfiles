@@ -1,0 +1,8 @@
+--type-add
+html=.haml,.erb,.hamlbars
+--type-add
+css=.sass,.scss,.less
+--type-add
+js=.coffee
+--type-add
+json=.jbuilder
