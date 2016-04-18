@@ -9,14 +9,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle (required!)
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " Plugins (bundles) - published on github, for automatic management with vundle
 
   " plugins
   Plugin 'ervandew/supertab'
-  Plugin 'kien/ctrlp.vim'
-  Plugin 'bling/vim-airline'
+  Plugin 'ctrlpvim/ctrlp.vim'
+  Plugin 'vim-airline/vim-airline'
   Plugin 'tpope/vim-repeat'
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-unimpaired'
@@ -36,6 +36,7 @@ Plugin 'gmarik/vundle'
   Plugin 'mxw/vim-jsx'
   Plugin 'cmake.vim'
   Plugin 'rhysd/vim-crystal'
+  Plugin 'keith/swift.vim'
 
   " colors
   Plugin 'oguzbilgic/sexy-railscasts-theme'
@@ -100,7 +101,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   let g:airline_powerline_fonts = 1
 
   " ctrlp
-  let g:ctrlp_custom_ignore = 'node_modules'
+  let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules|coverage)$',
+    \ }
 
   " vim-jsx (allow JSX syntax highlight in .js files)
   let g:jsx_ext_required = 0
