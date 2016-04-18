@@ -11,12 +11,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-source /usr/local/opt/nvm/nvm.sh
 
-export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
-export ANDROID_HOME="$HOME/work/android-sdk-macosx"
-export MOAI_BIN="$HOME/libs/moaisdk-osx-1.7.4/bin/osx"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export NVM_DIR="/Users/jgradim/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Aliases
-alias moai=/Users/jgradim/libs/moaisdk-osx-1.7.4/bin/osx/moai
+# rbenv
+eval "$(rbenv init -)"
