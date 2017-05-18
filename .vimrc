@@ -26,6 +26,9 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'mattn/emmet-vim'
   Plugin 'Align'
   Plugin 'scrooloose/syntastic'
+  Plugin 'kana/vim-textobj-user'
+  Plugin 'nelstrom/vim-textobj-rubyblock'
+  Plugin 'tpope/vim-abolish'
 
   " syntax highlight
   Plugin 'tpope/vim-markdown'
@@ -37,6 +40,8 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'cmake.vim'
   Plugin 'rhysd/vim-crystal'
   Plugin 'keith/swift.vim'
+  Plugin 'hhsnopek/vim-sugarss'
+  Plugin 'elixir-lang/vim-elixir'
 
   " colors
   Plugin 'oguzbilgic/sexy-railscasts-theme'
@@ -101,9 +106,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
   let g:airline_powerline_fonts = 1
 
   " ctrlp
-  let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules|coverage)$',
-    \ }
+  " let g:ctrlp_custom_ignore = 'node_modules'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+  let g:ctrlp_working_path_mode = 'a'
 
   " vim-jsx (allow JSX syntax highlight in .js files)
   let g:jsx_ext_required = 0
@@ -111,8 +116,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "" custom filetypes
 au BufRead,BufNewFile *.rabl* setf ruby
 au BufRead,BufNewFile Vagrantfile setf ruby
-au BufRead,BufNewFile *.less* setf scss
-au BufRead,BufNewFile *.styl* setf scss
+au BufRead,BufNewFile *.less* setf sass
+au BufRead,BufNewFile *.styl* setf sass
 au BufRead,BufNewFile *.hamlbars* setf haml
 au BufRead,BufNewFile *.hbs setf html
 au BufRead,BufNewFile *.emblem setf slim
