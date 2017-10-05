@@ -37,6 +37,7 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'kchmck/vim-coffee-script'
   Plugin 'slim-template/vim-slim'
   Plugin 'mxw/vim-jsx'
+  Plugin 'MaxMEllon/vim-jsx-pretty'
   Plugin 'cmake.vim'
   Plugin 'rhysd/vim-crystal'
   Plugin 'keith/swift.vim'
@@ -44,7 +45,7 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'elixir-lang/vim-elixir'
 
   " colors
-  Plugin 'oguzbilgic/sexy-railscasts-theme'
+  Plugin 'KeitaNakamura/neodark.vim'
 
 call vundle#end()
 filetype plugin indent on       " required!
@@ -95,7 +96,7 @@ set nowb
 set mouse=a
 
 "" Color theme
-color default
+colorscheme neodark
 
 "" Global ignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -112,6 +113,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
   " vim-jsx (allow JSX syntax highlight in .js files)
   let g:jsx_ext_required = 0
+
+  " vim-jsx-pretty
+  let g:vim_jsx_pretty_colorful_config = 1
 
 "" custom filetypes
 au BufRead,BufNewFile *.rabl* setf ruby

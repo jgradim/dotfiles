@@ -2,7 +2,7 @@
 source ~/.vimrc
 
 "" color
-color sexy-railscasts
+colorscheme neodark
 
 "" Hide menubar (MacVim)
 "if has('gui-runnin')
