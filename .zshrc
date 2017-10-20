@@ -15,6 +15,7 @@ fi
 # nvm
 export NVM_DIR="/Users/jgradim/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -38,13 +39,6 @@ load-nvmrc
 #
 # rbenv
 eval "$(rbenv init -)"
-
-#
-# fork
-function open_fork() {
-  (nohup open -a /Applications/Fork.app/Contents/MacOS/Fork ${1:-"."} &> /dev/null)
-}
-alias fork=open_fork
 
 #
 # git
