@@ -25,27 +25,23 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'nathanaelkane/vim-indent-guides'
   Plugin 'mattn/emmet-vim'
   Plugin 'Align'
-  Plugin 'scrooloose/syntastic'
   Plugin 'kana/vim-textobj-user'
   Plugin 'nelstrom/vim-textobj-rubyblock'
   Plugin 'tpope/vim-abolish'
+  Plugin 'w0rp/ale'
 
   " syntax highlight
   Plugin 'tpope/vim-markdown'
   Plugin 'tpope/vim-rails'
   Plugin 'pangloss/vim-javascript'
-  Plugin 'kchmck/vim-coffee-script'
-  Plugin 'slim-template/vim-slim'
   Plugin 'mxw/vim-jsx'
   Plugin 'MaxMEllon/vim-jsx-pretty'
-  Plugin 'cmake.vim'
-  Plugin 'rhysd/vim-crystal'
   Plugin 'keith/swift.vim'
   Plugin 'hhsnopek/vim-sugarss'
   Plugin 'elixir-lang/vim-elixir'
 
   " colors
-  Plugin 'KeitaNakamura/neodark.vim'
+  Plugin 'jgradim/neodark.vim'
 
 call vundle#end()
 filetype plugin indent on       " required!
@@ -63,7 +59,6 @@ set laststatus=2                " Always show the status line
 
 "" Syntax highlight
 syntax enable	
-"filetype plugin indent on       " load file type plugins + indentation
 
 "" Tab settings
 set softtabstop=2 shiftwidth=2
@@ -124,5 +119,3 @@ au BufRead,BufNewFile *.less* setf sass
 au BufRead,BufNewFile *.styl* setf sass
 au BufRead,BufNewFile *.hamlbars* setf haml
 au BufRead,BufNewFile *.hbs setf html
-au BufRead,BufNewFile *.emblem setf slim
-au BufRead,BufNewFile CMakeLists setf cmake
