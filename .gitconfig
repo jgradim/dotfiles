@@ -1,6 +1,13 @@
 [user]
-	name = João Gradim
-	email = joao.gradim@gmail.com
+  name = João Gradim
+  email = joao.gradim@gmail.com
+
+[includeIf "gitdir:~/work/lom/"]
+  path = .gitconfig-lom
+
+[includeIf "gitdir:~/work/lom/mobility-labs"]
+  path = .gitconfig-mobility-labs
+
 [color]
   diff = auto
   status = auto
@@ -27,9 +34,13 @@
 
 [core]
   pager = less -FRSX
-  whitespace = fix,-indent-with-none-tab,trailing-space,cr-at-eol
+  whitespace = blank-at-eol,blank-at-eof,trailing-space,space-before-tab,indent-with-non-tab
   merge-options = --no-ff
   editor = vim
+  excludesfile = ~/.gitignore
+
+[apply]
+  whitespace = fix
 
 [alias]
   co = checkout
