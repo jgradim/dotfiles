@@ -1,11 +1,8 @@
 "" inherit config from main .vimrc file
 source ~/.vimrc
 
-"" color
-colorscheme neodark
+" set font for MacVim
+set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 
-"" Hide menubar (MacVim)
-"if has('gui-runnin')
-  set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline:h12  " set font for MacVim
-  set guioptions=egmrt    " hide the gui menubar
-"endif
+" hide the gui menubar
+set guioptions=egmrt

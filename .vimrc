@@ -1,9 +1,10 @@
 "" Use Vim settings, not Vi
+
 "" This must be first, because it changes other options as a side effect
 set nocompatible 
 
 "" Vundler
-filetype off                      " required!
+filetype off " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -16,7 +17,6 @@ Plugin 'VundleVim/Vundle.vim'
   " plugins
   Plugin 'ervandew/supertab'
   Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'vim-airline/vim-airline'
   Plugin 'tpope/vim-repeat'
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-unimpaired'
@@ -29,6 +29,7 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'nelstrom/vim-textobj-rubyblock'
   Plugin 'tpope/vim-abolish'
   Plugin 'w0rp/ale'
+  Plugin 'itchyny/lightline.vim'
 
   " syntax highlight
   Plugin 'tpope/vim-markdown'
@@ -90,6 +91,9 @@ set nowb
 "" Mouse/trackpad scrolling in terminal Vim
 set mouse=a
 
+"" Hide mode, using lightline
+set noshowmode
+
 "" Color theme
 colorscheme neodark
 
@@ -98,13 +102,31 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 "" Plugin configuration
 
-  " Airline
-  let g:airline_powerline_fonts = 1
-
   " ctrlp
-  " let g:ctrlp_custom_ignore = 'node_modules'
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
   let g:ctrlp_working_path_mode = 'a'
+
+  " lightline
+  let g:lightline = {
+        \ 'colorscheme': 'wombat',
+        \ 'active': {
+        \   'left': [
+        \     [ 'mode', 'paste' ],
+        \     [ 'readonly', 'filepath', 'modified' ]
+        \   ]
+        \ },
+        \ 'component': {
+        \   'helloworld': 'Hello, world!'
+        \ },
+        \ 'component_function': {
+        \   'filepath': 'FilePath'
+        \ }
+        \ }
+
+  function! FilePath()
+    let path = expand('%:p')
+    return substitute(path, getcwd()."/", '', 'i')
+  endfunction
 
   " vim-jsx (allow JSX syntax highlight in .js files)
   let g:jsx_ext_required = 0
