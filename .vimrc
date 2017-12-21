@@ -1,7 +1,7 @@
 "" Use Vim settings, not Vi
 
 "" This must be first, because it changes other options as a side effect
-set nocompatible 
+set nocompatible
 
 "" Vundler
 filetype off " required!
@@ -22,7 +22,7 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'tpope/vim-unimpaired'
   Plugin 'tpope/vim-eunuch'
   Plugin 'Raimondi/delimitMate'
-  Plugin 'nathanaelkane/vim-indent-guides'
+  "Plugin 'nathanaelkane/vim-indent-guides'
   Plugin 'mattn/emmet-vim'
   Plugin 'Align'
   Plugin 'kana/vim-textobj-user'
@@ -30,6 +30,8 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'tpope/vim-abolish'
   Plugin 'w0rp/ale'
   Plugin 'itchyny/lightline.vim'
+  Plugin 'bronson/vim-trailing-whitespace'
+  Plugin 'Yggdroot/indentLine'
 
   " syntax highlight
   Plugin 'tpope/vim-markdown'
@@ -59,7 +61,7 @@ set autoread                    " Reload files changed outside vim
 set laststatus=2                " Always show the status line
 
 "" Syntax highlight
-syntax enable	
+syntax enable
 
 "" Tab settings
 set softtabstop=2 shiftwidth=2
@@ -100,11 +102,19 @@ colorscheme neodark
 "" Global ignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
+"" Disable Ex mode
+nnoremap Q <Nop>
+
 "" Plugin configuration
 
   " ctrlp
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
   let g:ctrlp_working_path_mode = 'a'
+
+  " indentLine
+  let g:indentLine_char = '⎸'
+  "let g:indent_guides_enable_on_vim_startup = 1
+  "let g:indent_guides_guide_size = 1
 
   " lightline
   let g:lightline = {
@@ -120,13 +130,20 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
         \ },
         \ 'component_function': {
         \   'filepath': 'FilePath'
-        \ }
+        \ },
         \ }
 
   function! FilePath()
     let path = expand('%:p')
     return substitute(path, getcwd()."/", '', 'i')
   endfunction
+
+  " emmet
+  let g:user_emmet_settings = {
+        \ 'javascript' : {
+        \   'extends' : 'jsx',
+        \ },
+        \ }
 
   " vim-jsx (allow JSX syntax highlight in .js files)
   let g:jsx_ext_required = 0

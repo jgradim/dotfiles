@@ -7,6 +7,7 @@ files=(
   .gvimrc
   .vimrc
   .zshrc
+  .zpreztorc
 )
 
 for i in "${files[@]}"
