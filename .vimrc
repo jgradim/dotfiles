@@ -3,51 +3,58 @@
 "" This must be first, because it changes other options as a side effect
 set nocompatible
 
-"" Vundler
-filetype off " required!
+"" Auto load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+  execute '!mkdir -p ~/.vim/autoload/; curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"" vim-plug
+call plug#begin("~/.vim/plugged")
 
-" let Vundle manage Vundle (required!)
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugins (bundles) - published on github, for automatic management with vundle
+" Plugins
 
   " plugins
-  Plugin 'ervandew/supertab'
-  Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'tpope/vim-repeat'
-  Plugin 'tpope/vim-surround'
-  Plugin 'tpope/vim-unimpaired'
-  Plugin 'tpope/vim-eunuch'
-  Plugin 'Raimondi/delimitMate'
-  "Plugin 'nathanaelkane/vim-indent-guides'
-  Plugin 'mattn/emmet-vim'
-  Plugin 'Align'
-  Plugin 'kana/vim-textobj-user'
-  Plugin 'nelstrom/vim-textobj-rubyblock'
-  Plugin 'tpope/vim-abolish'
-  Plugin 'w0rp/ale'
-  Plugin 'itchyny/lightline.vim'
-  Plugin 'bronson/vim-trailing-whitespace'
-  Plugin 'Yggdroot/indentLine'
+  Plug 'ervandew/supertab'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-eunuch'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'mattn/emmet-vim'
+  Plug 'vim-scripts/Align'
+  Plug 'kana/vim-textobj-user'
+  Plug 'nelstrom/vim-textobj-rubyblock'
+  Plug 'tpope/vim-abolish'
+  Plug 'w0rp/ale'
+  Plug 'itchyny/lightline.vim'
+  Plug 'bronson/vim-trailing-whitespace'
+  Plug 'Yggdroot/indentLine'
+  Plug 'rust-lang/rust.vim'
+
+  " Language Server Protocol (LSP) support
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'maralla/completor.vim'
 
   " syntax highlight
-  Plugin 'tpope/vim-markdown'
-  Plugin 'tpope/vim-rails'
-  Plugin 'pangloss/vim-javascript'
-  Plugin 'mxw/vim-jsx'
-  Plugin 'MaxMEllon/vim-jsx-pretty'
-  Plugin 'keith/swift.vim'
-  Plugin 'hhsnopek/vim-sugarss'
-  Plugin 'elixir-lang/vim-elixir'
+  Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+  Plug 'tpope/vim-rails', { 'for': 'ruby' }
+  Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'javascript.jsx'] }
+  Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'javascript.jsx' ] }
+  Plug 'MaxMEllon/vim-jsx-pretty', { 'for': [ 'javascript', 'javascript.jsx' ] }
+  Plug 'keith/swift.vim', { 'for': 'swift' }
+  Plug 'hhsnopek/vim-sugarss'
+  Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+  Plug 'cespare/vim-toml', { 'for': 'toml' }
 
   " colors
-  Plugin 'jgradim/neodark.vim'
+  Plug 'jgradim/neodark.vim'
 
-call vundle#end()
-filetype plugin indent on       " required!
+call plug#end()
+" filetype plugin indent on       " required!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -105,6 +112,24 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "" Disable Ex mode
 nnoremap Q <Nop>
 
+"" LSP configuration
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'rls',
+    \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+    \ 'whitelist': ['rust'],
+    \ })
+endif
+
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'typescript-language-server',
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+    \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+    \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx'],
+    \ })
+endif
+
 "" Plugin configuration
 
   " ctrlp
@@ -118,20 +143,20 @@ nnoremap Q <Nop>
 
   " lightline
   let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ 'active': {
-        \   'left': [
-        \     [ 'mode', 'paste' ],
-        \     [ 'readonly', 'filepath', 'modified' ]
-        \   ]
-        \ },
-        \ 'component': {
-        \   'helloworld': 'Hello, world!'
-        \ },
-        \ 'component_function': {
-        \   'filepath': 'FilePath'
-        \ },
-        \ }
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [
+      \     [ 'mode', 'paste' ],
+      \     [ 'readonly', 'filepath', 'modified' ]
+      \   ]
+      \ },
+      \ 'component': {
+      \   'helloworld': 'Hello, world!'
+      \ },
+      \ 'component_function': {
+      \   'filepath': 'FilePath'
+      \ },
+      \ }
 
   function! FilePath()
     let path = expand('%:p')
@@ -140,16 +165,19 @@ nnoremap Q <Nop>
 
   " emmet
   let g:user_emmet_settings = {
-        \ 'javascript' : {
-        \   'extends' : 'jsx',
-        \ },
-        \ }
+      \ 'javascript' : {
+      \   'extends' : 'jsx',
+      \ },
+      \ }
 
   " vim-jsx (allow JSX syntax highlight in .js files)
   let g:jsx_ext_required = 0
 
   " vim-jsx-pretty
   let g:vim_jsx_pretty_colorful_config = 1
+
+  " rust-vim
+  let g:autofmt_autosave = 1
 
 "" custom filetypes
 au BufRead,BufNewFile *.rabl* setf ruby
