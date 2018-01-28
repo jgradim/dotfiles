@@ -33,3 +33,7 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 #
 # direnv
 eval "$(direnv hook zsh)"
+
+#
+# pass https://www.passwordstore.org/
+export PASSWORD_STORE_DIR="$HOME/work/lom/passwords/"

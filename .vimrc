@@ -14,7 +14,7 @@ call plug#begin("~/.vim/plugged")
 " Plugins
 
   " plugins
-  Plug 'ervandew/supertab'
+  " Plug 'ervandew/supertab'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
@@ -29,17 +29,15 @@ call plug#begin("~/.vim/plugged")
   Plug 'w0rp/ale'
   Plug 'itchyny/lightline.vim'
   Plug 'bronson/vim-trailing-whitespace'
-  Plug 'Yggdroot/indentLine'
-  Plug 'rust-lang/rust.vim'
+  Plug 'shougo/neopairs.vim'
 
-  " Language Server Protocol (LSP) support
+  " Autocomplete / Language Server Protocol (LSP) support
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
-  Plug 'maralla/completor.vim'
 
-  " syntax highlight
+  " syntax highlight / language support
   Plug 'tpope/vim-markdown', { 'for': 'markdown' }
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
   Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'javascript.jsx'] }
@@ -49,12 +47,14 @@ call plug#begin("~/.vim/plugged")
   Plug 'hhsnopek/vim-sugarss'
   Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
   Plug 'cespare/vim-toml', { 'for': 'toml' }
+  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
   " colors
   Plug 'jgradim/neodark.vim'
 
 call plug#end()
-" filetype plugin indent on       " required!
+
+filetype plugin indent on       " required!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -137,9 +137,7 @@ endif
   let g:ctrlp_working_path_mode = 'a'
 
   " indentLine
-  let g:indentLine_char = '⎸'
-  "let g:indent_guides_enable_on_vim_startup = 1
-  "let g:indent_guides_guide_size = 1
+  " let g:indentLine_char = '⎸'
 
   " lightline
   let g:lightline = {
@@ -149,9 +147,6 @@ endif
       \     [ 'mode', 'paste' ],
       \     [ 'readonly', 'filepath', 'modified' ]
       \   ]
-      \ },
-      \ 'component': {
-      \   'helloworld': 'Hello, world!'
       \ },
       \ 'component_function': {
       \   'filepath': 'FilePath'
@@ -178,6 +173,23 @@ endif
 
   " rust-vim
   let g:autofmt_autosave = 1
+
+  " asyncomplete.vim
+  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+  let g:asyncomplete_auto_popup = 0
+
+  function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
+
+  inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ asyncomplete#force_refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 "" custom filetypes
 au BufRead,BufNewFile *.rabl* setf ruby
