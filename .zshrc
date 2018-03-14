@@ -6,34 +6,41 @@
 #
 
 #
-# Source Prezto.
+# prezto.
+#
+# install:
+#   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 #
-# nvm
-export NVM_DIR="/Users/jgradim/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-#
-# rbenv
-eval "$(rbenv init -)"
-
-#
-# git
-alias git-cleanup="git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
-
-#
 # android
-export ANDROID_HOME=${HOME}/Library/Android/sdk
+#
+# install
+#   brew cask install android-sdk
+export ANDROID_HOME=${HOME}/usr/local/share/android-sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 #
 # direnv
+#
+# install
+#   brew install direnv
 eval "$(direnv hook zsh)"
 
 #
 # pass https://www.passwordstore.org/
 export PASSWORD_STORE_DIR="$HOME/work/lom/passwords/"
+
+#
+# asdf-vm
+#
+# install
+#   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.2
+#
+# dependencies:
+#   brew install coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc gpg
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
