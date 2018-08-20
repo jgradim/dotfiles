@@ -65,6 +65,10 @@
       fi \
   }; f"
   autoremoveall = "!git remote | xargs -n 1 git autoremove; git autoremove"
+  gl = log --graph --decorate --pretty=oneline --abbrev-commit --all --date-order
+  s = status -sb
+  dc = diff --cached
+  d = diff
 
 [push]
   default = simple
