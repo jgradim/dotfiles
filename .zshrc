@@ -44,3 +44,7 @@ export PASSWORD_STORE_DIR="$HOME/work/lom/passwords/"
 #   brew install coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc gpg
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+#
+# History in iex
+export ERL_AFLAGS="-kernel shell_history enabled"
