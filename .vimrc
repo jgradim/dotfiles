@@ -14,13 +14,13 @@ call plug#begin("~/.vim/plugged")
 " Plugins
 
   " plugins
-  " Plug 'ervandew/supertab'
+  Plug 'ervandew/supertab'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-eunuch'
-  Plug 'jiangmiao/auto-pairs'
+  Plug 'vim-scripts/auto-pairs-gentle'
   Plug 'mattn/emmet-vim'
   Plug 'vim-scripts/Align'
   Plug 'kana/vim-textobj-user'
@@ -29,7 +29,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'w0rp/ale'
   Plug 'itchyny/lightline.vim'
   Plug 'bronson/vim-trailing-whitespace'
-  Plug 'shougo/neopairs.vim'
+  Plug 'AndrewRadev/splitjoin.vim'
 
   " Autocomplete / Language Server Protocol (LSP) support
   Plug 'prabirshrestha/async.vim'
@@ -48,6 +48,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
   Plug 'cespare/vim-toml', { 'for': 'toml' }
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 
   " colors
   Plug 'jgradim/neodark.vim'
@@ -185,11 +186,11 @@ endif
       return !col || getline('.')[col - 1]  =~ '\s'
   endfunction
 
-  inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ asyncomplete#force_refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  " inoremap <silent><expr> <TAB>
+  "   \ pumvisible() ? "\<C-n>" :
+  "   \ <SID>check_back_space() ? "\<TAB>" :
+  "   \ asyncomplete#force_refresh()
+  " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 "" custom filetypes
 au BufRead,BufNewFile *.rabl* setf ruby
