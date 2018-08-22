@@ -18,9 +18,8 @@ call plug#begin("~/.vim/plugged")
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-eunuch'
-  Plug 'vim-scripts/auto-pairs-gentle'
+  Plug 'raimondi/delimitmate'
   Plug 'mattn/emmet-vim'
   Plug 'vim-scripts/Align'
   Plug 'kana/vim-textobj-user'
@@ -113,24 +112,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "" Disable Ex mode
 nnoremap Q <Nop>
 
-"" LSP configuration
-if executable('rls')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'rls',
-    \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-    \ 'whitelist': ['rust'],
-    \ })
-endif
-
-if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'typescript-language-server',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-    \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-    \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx'],
-    \ })
-endif
-
 "" Plugin configuration
 
   " ctrlp
@@ -174,23 +155,6 @@ endif
 
   " rust-vim
   let g:autofmt_autosave = 1
-
-  " asyncomplete.vim
-  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-  " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-  let g:asyncomplete_auto_popup = 0
-
-  function! s:check_back_space() abort
-      let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~ '\s'
-  endfunction
-
-  " inoremap <silent><expr> <TAB>
-  "   \ pumvisible() ? "\<C-n>" :
-  "   \ <SID>check_back_space() ? "\<TAB>" :
-  "   \ asyncomplete#force_refresh()
-  " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 "" custom filetypes
 au BufRead,BufNewFile *.rabl* setf ruby
