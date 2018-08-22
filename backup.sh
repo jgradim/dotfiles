@@ -5,6 +5,7 @@ files=(
   .gitconfig-mobility-labs
   .gitignore
   .gvimrc
+  .irbrc
   .vimrc
   .zshrc
   .zpreztorc
