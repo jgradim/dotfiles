@@ -30,12 +30,6 @@ call plug#begin("~/.vim/plugged")
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'AndrewRadev/splitjoin.vim'
 
-  " Autocomplete / Language Server Protocol (LSP) support
-  Plug 'prabirshrestha/async.vim'
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'prabirshrestha/asyncomplete.vim'
-  Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
   " syntax highlight / language support
   Plug 'tpope/vim-markdown', { 'for': 'markdown' }
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
