@@ -2,7 +2,6 @@ files=(
   .ackrc
   .gitconfig
   .gitconfig-lom
-  .gitconfig-mobility-labs
   .gitignore
   .gvimrc
   .irbrc
