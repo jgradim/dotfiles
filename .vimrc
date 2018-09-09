@@ -42,6 +42,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'cespare/vim-toml', { 'for': 'toml' }
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
+  Plug 'calviken/vim-gdscript3', { 'for': 'gdscript3' }
 
   " colors
   Plug 'jgradim/neodark.vim'
