@@ -5,9 +5,6 @@
 [includeIf "gitdir:~/work/lom/"]
   path = .gitconfig-lom
 
-[includeIf "gitdir:~/work/lom/mobility-labs"]
-  path = .gitconfig-mobility-labs
-
 [color]
   diff = auto
   status = auto

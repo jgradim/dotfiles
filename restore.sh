@@ -1,7 +1,6 @@
 files=(
   .ackrc
   .gitconfig
-  .gitconfig-lom
   .gitignore
   .gvimrc
   .irbrc
