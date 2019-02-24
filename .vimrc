@@ -43,6 +43,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
   Plug 'calviken/vim-gdscript3', { 'for': 'gdscript3' }
+  Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 
   " colors
   Plug 'jgradim/neodark.vim'
@@ -158,3 +159,5 @@ au BufRead,BufNewFile *.less* setf sass
 au BufRead,BufNewFile *.styl* setf sass
 au BufRead,BufNewFile *.hamlbars* setf haml
 au BufRead,BufNewFile *.hbs setf html
+au BufRead,BufNewFile .env setf sh
+au BufRead,BufNewFile .env.* setf sh
