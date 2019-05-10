@@ -2,9 +2,6 @@
   name = João Gradim
   email = joao.gradim@gmail.com
 
-[includeIf "gitdir:~/work/lom/"]
-  path = .gitconfig-lom
-
 [color]
   diff = auto
   status = auto
