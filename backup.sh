@@ -7,9 +7,10 @@ files=(
   .vimrc
   .zshrc
   .zpreztorc
+  .scripts
 )
 
 for i in "${files[@]}"
 do
-  cp -v ~/"$i" .
+  cp -vr ~/"$i" .
 done

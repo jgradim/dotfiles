@@ -15,6 +15,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 #
+# custom scripts
+#
+for f in ${HOME}/.scripts/*.sh; do
+  source $f
+done
+
+#
 # android
 #
 # install
@@ -37,6 +44,7 @@ export PASSWORD_STORE_DIR="$HOME/work/lom/passwords/"
 #
 # History in iex
 export ERL_AFLAGS="-kernel shell_history enabled"
+
 #
 # asdf-vm
 #
