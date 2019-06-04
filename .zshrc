@@ -22,6 +22,11 @@ for f in ${HOME}/.scripts/*.sh; do
 done
 
 #
+# Homebrew
+#
+export HOMEBREW_NO_ANALYTICS=1
+
+#
 # android
 #
 # install
