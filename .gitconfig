@@ -63,6 +63,7 @@
   s = status -sb
   dc = diff --cached
   d = diff
+  latest = rev-parse --short HEAD
 
 [push]
   default = simple
