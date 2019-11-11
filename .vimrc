@@ -34,7 +34,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'tpope/vim-markdown', { 'for': 'markdown' }
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
   Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'javascript.jsx'] }
-  Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'javascript.jsx' ] }
+  " Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'javascript.jsx' ] }
   Plug 'MaxMEllon/vim-jsx-pretty', { 'for': [ 'javascript', 'javascript.jsx' ] }
   Plug 'keith/swift.vim', { 'for': 'swift' }
   Plug 'hhsnopek/vim-sugarss'
@@ -42,7 +42,6 @@ call plug#begin("~/.vim/plugged")
   Plug 'cespare/vim-toml', { 'for': 'toml' }
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
-  Plug 'calviken/vim-gdscript3', { 'for': 'gdscript3' }
   Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 
   " colors
