@@ -1,0 +1,24 @@
+{
+  "codeLens.enable": true,
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "flow": {
+      "command": "flow",
+      "args": ["lsp"],
+      "filetypes": ["javascript", "javascriptreact"],
+      "initializationOptions": {},
+      "requireRootPattern": true,
+      "settings": {},
+      "rootPatterns": [".flowconfig"]
+    },
+    "elixirLS": {
+      "command": "~/work/elixir-ls/rel/language_server.sh",
+      "filetypes": ["elixir", "eelixir"]
+    }
+  }
+}

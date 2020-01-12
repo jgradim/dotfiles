@@ -8,9 +8,17 @@ files=(
   .zshrc
   .zpreztorc
   .scripts
+  .vim/coc-settings.json
 )
+
+mkdir .vim
 
 for i in "${files[@]}"
 do
-  cp -vr ~/"$i" .
+  if [[ $i =~ "/" ]]
+  then
+    cp -vr ~/"$i" ./"$i"
+  else
+    cp -vr ~/"$i" .
+  fi
 done
