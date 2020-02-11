@@ -4,11 +4,11 @@ files=(
   .gitignore
   .gvimrc
   .irbrc
-  .vimrc
-  .zshrc
   .p10k.zsh
   .scripts
   .vim/coc-settings.json
+  .vimrc
+  .zshrc
 )
 
 mkdir .vim
