@@ -17,6 +17,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'editorconfig/editorconfig-vim'
   Plug 'itchyny/lightline.vim'
   Plug 'mattn/emmet-vim'
   Plug 'raimondi/delimitmate'

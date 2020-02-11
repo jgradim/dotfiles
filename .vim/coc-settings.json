@@ -15,10 +15,6 @@
       "requireRootPattern": true,
       "settings": {},
       "rootPatterns": [".flowconfig"]
-    },
-    "elixirLS": {
-      "command": "~/work/elixir-ls/rel/language_server.sh",
-      "filetypes": ["elixir", "eelixir"]
     }
   }
 }
