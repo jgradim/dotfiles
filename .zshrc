@@ -1,18 +1,10 @@
+# powerlevel10k theme
+# https://github.com/romkatv/powerlevel10k#manual
 #
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
-#
-# prezto.
-#
-# install:
-#   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #
 # custom scripts
@@ -41,11 +33,6 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 # install
 #   brew install direnv
 eval "$(direnv hook zsh)"
-
-#
-# pass https://www.passwordstore.org/
-export PASSWORD_STORE_DIR="$HOME/work/lom/passwords/"
-
 #
 # History in iex
 export ERL_AFLAGS="-kernel shell_history enabled"
@@ -53,11 +40,6 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 #
 # asdf-vm
 #
-# install
-#   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.2
-#
-# dependencies:
-#   brew install coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc gpg
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 export PATH="$(yarn global bin):$PATH"

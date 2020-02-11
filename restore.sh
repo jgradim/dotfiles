@@ -6,7 +6,7 @@ files=(
   .irbrc
   .vimrc
   .zshrc
-  .zpreztorc
+  .p10k.zsh
   .scripts
   .vim/coc-settings.json
 )
