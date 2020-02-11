@@ -15,11 +15,19 @@
   local = yellow
   remote = green
 
+[color "diff-highlight"]
+  oldNormal    = red bold
+  oldHighlight = red bold 52
+  newNormal    = green bold
+  newHighlight = green bold 22
+
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+  meta       = 11
+  frag       = magenta bold
+  commit     = yellow bold
+  old        = red bold
+  new        = green bold
+  whitespace = red reverse
 
 [color "status"]
   added = yellow
@@ -27,7 +35,7 @@
   untracked = cyan
 
 [core]
-  pager = less -FRSX
+  pager = diff-so-fancy | less --tabs=4 -RFX
   whitespace = blank-at-eol,blank-at-eof,trailing-space,space-before-tab,indent-with-non-tab
   merge-options = --no-ff
   editor = vim
