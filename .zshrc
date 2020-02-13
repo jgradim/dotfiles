@@ -88,6 +88,7 @@ export HOMEBREW_NO_ANALYTICS=1
 #
 # install
 #   brew cask install android-sdk
+#
 export ANDROID_HOME=${HOME}/usr/local/share/android-sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
@@ -97,6 +98,7 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 #
 # install
 #   brew install direnv
+#
 eval "$(direnv hook zsh)"
 
 #
@@ -110,3 +112,11 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 export PATH="$(yarn global bin):$PATH"
+
+#
+# Syntax highlighting for commands
+#
+# instal
+#   brew install zsh-syntax-highlighting
+#
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
