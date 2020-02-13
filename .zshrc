@@ -56,6 +56,13 @@ unsetopt CLOBBER            # Don't overwrite existing files with > and >>.
                             # Use >! and >>! to bypass.
 
 #
+# Editors
+#
+export EDITOR="vim"
+export VISUAL="mvim"
+export PAGER="less"
+
+#
 # powerlevel10k theme
 # https://github.com/romkatv/powerlevel10k#manual
 #
