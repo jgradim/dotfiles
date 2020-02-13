@@ -1,3 +1,12 @@
+
+#
+# Autocompletions
+#
+autoload -Uz compinit
+compinit
+
+fpath=(~/.zsh $fpath)
+
 # powerlevel10k theme
 # https://github.com/romkatv/powerlevel10k#manual
 #
@@ -33,8 +42,10 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 # install
 #   brew install direnv
 eval "$(direnv hook zsh)"
+
 #
 # History in iex
+#
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 #

@@ -8,10 +8,12 @@ files=(
   .scripts
   .vim/coc-settings.json
   .vimrc
+  .zsh/git-completion.zsh
   .zshrc
 )
 
-mkdir ~/.vim
+[ -d ~/.vim ] || mkdir ~/.vim
+[ -d ~/.zsh ] || mkdir ~/.zsh
 
 for i in "${files[@]}"
 do
