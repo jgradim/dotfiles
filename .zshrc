@@ -63,6 +63,12 @@ export VISUAL="mvim"
 export PAGER="less"
 
 #
+# Aliases
+#
+alias ls="ls -G"
+alias ll="ls -lhF"
+
+#
 # powerlevel10k theme
 # https://github.com/romkatv/powerlevel10k#manual
 #
