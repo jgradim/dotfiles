@@ -1,5 +1,7 @@
 {
   "codeLens.enable": true,
+  "css.enable": true,
+  "json.enable": true,
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
@@ -14,7 +16,8 @@
       "initializationOptions": {},
       "requireRootPattern": true,
       "settings": {},
-      "rootPatterns": [".flowconfig"]
+      "rootPatterns": [".flowconfig"],
+      "meta": "npm i -g flow-bin"
     }
   }
 }
