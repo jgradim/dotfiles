@@ -12,6 +12,7 @@ setopt PATH_DIRS           # Perform path search even on command names with slas
 setopt AUTO_MENU           # Show completion menu on a succesive tab press.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
 setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a trailing slash.
+setopt NO_CASE_GLOB        # Case Insensitive Globbing
 
 #
 # History config
@@ -19,7 +20,7 @@ setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a traili
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY             # Share history between all sessions.
+# setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
 setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
 setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
@@ -54,6 +55,11 @@ setopt MULTIOS              # Write to multiple descriptors.
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
 unsetopt CLOBBER            # Don't overwrite existing files with > and >>.
                             # Use >! and >>! to bypass.
+
+# https://github.com/rupa/z
+# [[ -f . /usr/local/etc/profile.d/z.sh ]] && source . /usr/local/etc/profile.d/z.sh
+source /usr/local/etc/profile.d/z.sh
+
 
 #
 # Editors
@@ -118,6 +124,16 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 export PATH="$(yarn global bin):$PATH"
+
+#
+# Haxe
+#
+export HAXE_STD_PATH="/usr/local/lib/haxe/std"
+
+#
+# kubectl
+#
+source <(kubectl completion zsh)
 
 #
 # Syntax highlighting for commands
