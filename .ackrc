@@ -1,3 +1,7 @@
+--ignore-dir=deps
+--ignore-dir=coverage
+--ignore-dir=.next
+--ignore-dir=node_modules
 --type-add
 html=.haml,.erb,.hamlbars
 --type-add
