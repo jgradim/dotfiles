@@ -1,10 +1,10 @@
 #
 # Completions
 #
+fpath=(~/.zsh $fpath)
+
 autoload -Uz compinit
 compinit
-
-fpath=(~/.zsh $fpath)
 
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
 setopt ALWAYS_TO_END       # Move cursor to the end of a completed word.
@@ -73,6 +73,8 @@ export PAGER="less"
 #
 alias ls="ls -G"
 alias ll="ls -lhF"
+alias aseprite=/Applications/Aseprite.app/Contents/MacOS/aseprite
+alias pico8=/Applications/PICO-8.app/Contents/MacOS/pico8
 
 #
 # powerlevel10k theme
@@ -122,8 +124,6 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # asdf-vm
 #
 . $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-export PATH="$(yarn global bin):$PATH"
 
 #
 # Haxe
@@ -134,6 +134,7 @@ export HAXE_STD_PATH="/usr/local/lib/haxe/std"
 # kubectl
 #
 source <(kubectl completion zsh)
+alias k=kubectl
 
 #
 # Syntax highlighting for commands
@@ -142,3 +143,5 @@ source <(kubectl completion zsh)
 #   brew install zsh-syntax-highlighting
 #
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#
