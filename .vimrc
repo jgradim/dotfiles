@@ -8,6 +8,9 @@ if empty(glob("~/.vim/autoload/plug.vim"))
   execute '!mkdir -p ~/.vim/autoload/; curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
+" Enable completion where available using ALE
+let g:ale_completion_enabled = 1
+
 "" vim-plug
 call plug#begin("~/.vim/plugged")
 
@@ -27,16 +30,6 @@ call plug#begin("~/.vim/plugged")
   Plug 'tpope/vim-surround'
   Plug 'vim-scripts/Align'
   Plug 'dense-analysis/ale'
-
-  " auto-completion / language servers
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
-  let g:deoplete#enable_at_startup = 1
 
   " syntax highlight / language support
   Plug 'MaxMEllon/vim-jsx-pretty', { 'for': [ 'javascript', 'javascript.jsx' ] }
@@ -188,9 +181,16 @@ set tabpagemax=50
   let g:svelte_indent_style = 0
 
   " ALE
+  "
+  " npm i -g eslint typescript bash-language-server stylelint
+  " gem install rubocop solargraph
   let g:ale_linters = {
-    \ 'typescript': ['eslint'],
-    \ 'javascript': ['eslint'],
+    \ 'css': ['stylelint'],
+    \ 'javascript': ['eslint', 'tsserver'],
+    \ 'json': ['eslint'],
+    \ 'ruby': ['ruby', 'rubocop', 'solargraph'],
+    \ 'sh': ['language_server'],
+    \ 'typescript': ['eslint', 'tsserver'],
     \ }
   let g:ale_javascript_eslint_suppress_missing_config = 1
 

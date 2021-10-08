@@ -6,7 +6,6 @@ files=(
   .irbrc
   .p10k.zsh
   .scripts
-  .vim/coc-settings.json
   .vimrc
   .zsh/git-completion.zsh
   .zshrc
