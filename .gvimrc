@@ -6,3 +6,5 @@ set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 
 " hide the gui menubar
 set guioptions=egmrt
+
+autocmd GUIEnter * set vb t_vb=

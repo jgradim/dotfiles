@@ -2,6 +2,7 @@
 # Completions
 #
 fpath=(~/.zsh $fpath)
+fpath=(${ASDF_DIR}/completions $fpath)
 
 autoload -Uz compinit
 compinit
@@ -20,7 +21,7 @@ setopt NO_CASE_GLOB        # Case Insensitive Globbing
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-# setopt SHARE_HISTORY             # Share history between all sessions.
+unsetopt SHARE_HISTORY           # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
 setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
 setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
@@ -55,12 +56,6 @@ setopt MULTIOS              # Write to multiple descriptors.
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
 unsetopt CLOBBER            # Don't overwrite existing files with > and >>.
                             # Use >! and >>! to bypass.
-
-# https://github.com/rupa/z
-# [[ -f . /usr/local/etc/profile.d/z.sh ]] && source . /usr/local/etc/profile.d/z.sh
-source /usr/local/etc/profile.d/z.sh
-
-
 #
 # Editors
 #
@@ -113,7 +108,7 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 # install
 #   brew install direnv
 #
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 #
 # History in iex
@@ -126,14 +121,9 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 . $HOME/.asdf/asdf.sh
 
 #
-# Haxe
-#
-export HAXE_STD_PATH="/usr/local/lib/haxe/std"
-
-#
 # kubectl
 #
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 alias k=kubectl
 
 #
@@ -145,3 +135,6 @@ alias k=kubectl
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #
+# gcloud
+#
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True

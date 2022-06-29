@@ -30,6 +30,9 @@ call plug#begin("~/.vim/plugged")
   Plug 'tpope/vim-surround'
   Plug 'vim-scripts/Align'
   Plug 'dense-analysis/ale'
+  Plug 'lifepillar/vim-mucomplete'
+  " Plug 'ervandew/supertab'
+
 
   " syntax highlight / language support
   Plug 'MaxMEllon/vim-jsx-pretty', { 'for': [ 'javascript', 'javascript.jsx' ] }
@@ -46,6 +49,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
   Plug 'calviken/vim-gdscript3', { 'for': 'gdscript' }
   Plug 'evanleck/vim-svelte', { 'branch': 'main' }
+  Plug 'pantharshit00/vim-prisma', { 'for': 'prisma' }
 
   " colors
   Plug 'jgradim/neodark.vim'
@@ -131,6 +135,26 @@ set tabpagemax=50
 
 "" Plugin configuration
 
+  " vim-mucomplete
+  set completeopt+=menuone,noselect
+  set belloff+=ctrlg,complete
+
+  let g:mucomplete#enable_auto_at_startup = 1
+
+  " insert a tab character when there are no completions
+  let g:mucomplete#tab_when_no_results = 1
+
+  " cyle through completion methods with left and right keys
+  " inoremap <silent> <plug>(MUcompleteFwdKey) <right>
+	" imap <right> <plug>(MUcompleteCycFwd)
+	" inoremap <silent> <plug>(MUcompleteBwdKey) <left>
+	" imap <left> <plug>(MUcompleteCycBwd)
+
+  let g:mucomplete#chains = {
+      \ 'default': ['path', 'c-n', 'keyn'],
+      \ 'vim': ['path', 'cmd', 'keyn'],
+      \ }
+
   " ctrlp
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
   let g:ctrlp_working_path_mode = 'a'
@@ -192,7 +216,12 @@ set tabpagemax=50
     \ 'sh': ['language_server'],
     \ 'typescript': ['eslint', 'tsserver'],
     \ }
+  let g:ale_fixers = {
+    \ 'javascript': ['eslint'],
+    \ 'json': ['eslint'],
+    \}
   let g:ale_javascript_eslint_suppress_missing_config = 1
+  let g:ale_fix_on_save = 1
 
 "" custom filetypes
 au BufRead,BufNewFile *.hamlbars* setf haml
@@ -206,3 +235,4 @@ au BufRead,BufNewFile .env setf sh
 au BufRead,BufNewFile .env.* setf sh
 au BufRead,BufNewFile Vagrantfile setf ruby
 au BufRead,BufNewFile .eslintrc setf javascript
+au Bufread,BufnewFile .prisma setf prisma

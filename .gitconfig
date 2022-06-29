@@ -76,8 +76,7 @@
 [push]
   default = simple
 
-[rerere]
-  enabled = true
-
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
