@@ -91,6 +91,7 @@ done
 # Homebrew
 #
 export HOMEBREW_NO_ANALYTICS=1
+export PATH="/opt/homebrew/bin:$PATH"
 
 #
 # android
@@ -118,7 +119,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 #
 # asdf-vm
 #
-. $HOME/.asdf/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 #
 # kubectl
@@ -132,9 +133,9 @@ alias k=kubectl
 # instal
 #   brew install zsh-syntax-highlighting
 #
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #
 # gcloud
 #
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+#export USE_GKE_GCLOUD_AUTH_PLUGIN=True
