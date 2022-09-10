@@ -236,3 +236,6 @@ au BufRead,BufNewFile .env.* setf sh
 au BufRead,BufNewFile Vagrantfile setf ruby
 au BufRead,BufNewFile .eslintrc setf javascript
 au Bufread,BufnewFile .prisma setf prisma
+
+"" kitty compatibility
+let &t_ut=''
