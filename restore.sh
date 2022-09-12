@@ -1,5 +1,6 @@
 files=(
   .ackrc
+  .config/nvim/init.lua
   .config/kitty/kitty.conf
   .config/kitty/current-theme.conf
   .gitconfig
@@ -13,8 +14,13 @@ files=(
   .zshrc
 )
 
+folders=(
+  .config/nvim
+)
+
 [ -d ~/.vim ] || mkdir ~/.vim
 [ -d ~/.zsh ] || mkdir ~/.zsh
+[ -d ~/.config/nvim ] || mkdir -p ~/.config/nvim
 [ -d ~/.config/kitty ] || mkdir -p ~/.config/kitty
 
 for i in "${files[@]}"
@@ -25,4 +31,9 @@ do
   else
     cp -vr "$i" ~/
   fi
+done
+
+for i in "${folders[@]}"
+do
+  cp -vr ./"$i"/ ~/"i"
 done
