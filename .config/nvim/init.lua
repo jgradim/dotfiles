@@ -11,6 +11,9 @@
 --   StyLua - cargo 
 --
 -- Heavily inspired by NvChad, LunarVim, AstroNvim
+-- 
+-- Huge list of plugins / themes
+--   https://morioh.com/p/a7063de46490
 
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
@@ -51,7 +54,7 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'                        -- Collection of configurations for built-in LSP client
   use 'folke/lsp-colors.nvim'                        -- LSP colors
   use 'folke/trouble.nvim'                           -- Show LSP diagnostics inline and in a dedicated window
-  use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' -- Detailed virtual text lsp diagnostics
+  use 'kaputi/e-kaput.nvim'                          -- LSP diagnostics in floating window
 
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'

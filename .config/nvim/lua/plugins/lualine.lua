@@ -1,12 +1,10 @@
-local function file_path()
-end
-
 require('lualine').setup({
   options = {
     -- theme = 'wombat',
     theme = 'nord',
   },
   sections = {
+    lualine_b = {'diagnostics'},
     lualine_c = { {
       'filename',
       path = 1

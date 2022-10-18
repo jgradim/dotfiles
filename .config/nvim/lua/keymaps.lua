@@ -20,13 +20,15 @@ vim.g.maplocalleader = ' '
 keymap('n', '<Leader>tt', '<cmd> tabnew<CR>', opts)
 keymap('n', '<D-t>', '<cmd> tabnew<CR>', opts) -- FIXME: Crutch, remove in favour of <Leader>tt
 
+-- Set wrap / unwrap
+keymap('n', '<Leader>ww', '<cmd> set wrap!<CR>', opts)
+
 -- Session (CWD session.vim) management
 keymap('n', '<Leader>sc', '<cmd> mksession! session.vim<CR>', opts)
 keymap('n', '<Leader>sr', '<cmd> source session.vim<CR>', opts)
 
 -- LSP
-vim.keymap.set('', '<Leader>ll', require('lsp_lines').toggle, opts)
--- keymap('n', '<Leader<ll>', require("lsp_lines").toggle, opts)
+keymap('n', '<Leader>lr', '<cmd> LspRestart<CR>', opts)
 keymap('n', '<Leader>le', '<cmd> TroubleToggle document_diagnostics<CR>', opts)
 keymap('n', '<Leader>lw', '<cmd> TroubleToggle workspace_diagnostics<CR>', opts)
 
