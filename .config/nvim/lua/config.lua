@@ -42,3 +42,13 @@ vim.o.mouse = 'a'
 
 -- GUI settings
 vim.o.guifont = 'FiraCode Nerd Font:h13'
+
+FONT_SIZE = 13
+CHANGE_GUI_FONT_SIZE = function(delta)
+  if delta == 0 then
+    FONT_SIZE = 13
+  end
+  FONT_SIZE = FONT_SIZE + delta
+
+  vim.o.guifont = string.format('FiraCode Nerd Font:h%s', FONT_SIZE)
+end

@@ -51,9 +51,14 @@ keymap('i', '<D-right>', 'w', opts)
 keymap('c', '<C-P>', '<Up>', opts)
 keymap('c', '<C-N>', '<Down>', opts)
 
+-- increase / decrease / reset font size
+vim.keymap.set({ 'n', 'i' }, '<D-=>', function() CHANGE_GUI_FONT_SIZE(1) end, opts)
+vim.keymap.set({ 'n', 'i' }, '<D-->', function() CHANGE_GUI_FONT_SIZE(-1) end, opts)
+vim.keymap.set({ 'n', 'i' }, '<D-0>', function() CHANGE_GUI_FONT_SIZE(0) end, opts)
+
 -- Allow clipboard copy paste in neovim
 vim.g.neovide_input_use_logo = 1
-vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', opts)
-vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', opts)
-vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', opts)
-vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', opts)
+keymap('', '<D-v>', '+p<CR>', opts)
+keymap('!', '<D-v>', '<C-R>+', opts)
+keymap('t', '<D-v>', '<C-R>+', opts)
+keymap('v', '<D-v>', '<C-R>+', opts)
