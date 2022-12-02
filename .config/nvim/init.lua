@@ -44,6 +44,8 @@ require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'              -- Highlight, edit, and navigate code
   use 'nvim-treesitter/nvim-treesitter-textobjects'  -- Additional textobjects for treesitter
   use 'folke/which-key.nvim'                         -- View possible keybindings
+  use 'tpope/vim-abolish'                            -- :Subvert et al
+  use 'tpope/vim-eunuch'                             -- :Move, :Rename et al
 
   -- Linting, formatting
   use 'jose-elias-alvarez/null-ls.nvim'              -- Linters, formatters
@@ -54,7 +56,6 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'                        -- Collection of configurations for built-in LSP client
   use 'folke/lsp-colors.nvim'                        -- LSP colors
   use 'folke/trouble.nvim'                           -- Show LSP diagnostics inline and in a dedicated window
-  use 'kaputi/e-kaput.nvim'                          -- LSP diagnostics in floating window
 
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'

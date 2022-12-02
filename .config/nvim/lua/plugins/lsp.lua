@@ -41,25 +41,12 @@ vim.diagnostic.config {
   --   prefix = "",
   -- },
   float = true,
-  -- float = {
-  --   border = 'round',
-  -- },
   signs = true,
   underline = true,
   update_in_insert = false,
 }
 
 vim.o.updatetime = 200 -- default is 4000
-require('e-kaput').setup({
-  -- defaults
-  enabled = true, -- true | false,  Enable EKaput.
-  transparency = 25, -- 0 - 100 , transparecy percentage.
-  borders = true, -- true | false, Borders.
-  error_sign = '', -- Error sign.
-  warning_sign = '', -- Warning sign.
-  information_sign = '', -- Information sign.
-  hint_sign = '', -- Hint sign
-})
 
 local lsp_defaults = {
   flags = {
@@ -70,7 +57,7 @@ local lsp_defaults = {
   ),
   on_attach = function(client, bufnr)
     vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
-    -- vim.api.nvim_command('autocmd CursorHold <buffer> lua vim.lsp.util.show_line_diagnostics()')
+    vim.api.nvim_command('autocmd CursorHold <buffer> lua vim.diagnostic.open_float(nil, { focusable = false })')
   end
 }
 

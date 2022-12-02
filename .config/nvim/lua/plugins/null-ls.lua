@@ -1,6 +1,6 @@
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
 
-local autogroup = vim.api.nvim_create_augroup('LspFormatting', {})
+-- local autogroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
 require('null-ls').setup({
   sources = {
@@ -8,7 +8,7 @@ require('null-ls').setup({
     require('null-ls').builtins.diagnostics.shellcheck,
 
     -- Lua
-    require("null-ls").builtins.formatting.stylua,
+    -- require("null-ls").builtins.formatting.stylua,
 
     -- JS, TS, JSON
     require("null-ls").builtins.diagnostics.eslint,
@@ -24,16 +24,16 @@ require('null-ls').setup({
     -- require("null-ls").builtins.completion.spell,
   },
 
-  on_attach = function(client, bufnr)
-    if client.supports_method('textDocument/formatting') then
-      vim.api.nvim_clear_autocmds({ group = autogroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = autogroup,
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr })
-        end,
-      })
-    end
-  end
+  -- on_attach = function(client, bufnr)
+  --   if client.supports_method('textDocument/formatting') then
+  --     vim.api.nvim_clear_autocmds({ group = autogroup, buffer = bufnr })
+  --     vim.api.nvim_create_autocmd('BufWritePre', {
+  --       group = autogroup,
+  --       buffer = bufnr,
+  --       callback = function()
+  --         vim.lsp.buf.format({ bufnr = bufnr })
+  --       end,
+  --     })
+  --   end
+  -- end
 })
