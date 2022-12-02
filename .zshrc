@@ -60,8 +60,11 @@ unsetopt CLOBBER            # Don't overwrite existing files with > and >>.
 # Editors
 #
 export EDITOR="nvim"
-export VISUAL="neovide"
+export VISUAL="neovide --multigrid"
 export PAGER="less"
+
+# Neovide multigrid (better mouse / floating window support)
+export NEOVIDE_MUTIGRID=1
 
 #
 # Aliases
@@ -70,7 +73,8 @@ alias ls="ls -G"
 alias ll="ls -lhF"
 alias aseprite=/Applications/Aseprite.app/Contents/MacOS/aseprite
 alias pico8=/Applications/PICO-8.app/Contents/MacOS/pico8
-alias mvim=neovide
+alias mvim="neovide --multigrid"
+alias nv="neovide --multigrid"
 
 #
 # powerlevel10k theme
