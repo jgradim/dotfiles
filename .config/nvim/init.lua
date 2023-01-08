@@ -46,6 +46,7 @@ require('packer').startup(function(use)
   use 'folke/which-key.nvim'                         -- View possible keybindings
   use 'tpope/vim-abolish'                            -- :Subvert et al
   use 'tpope/vim-eunuch'                             -- :Move, :Rename et al
+  use 'Wansmer/treesj'                               -- splitjoin.vim for neovim
 
   -- Linting, formatting
   use 'jose-elias-alvarez/null-ls.nvim'              -- Linters, formatters
@@ -120,6 +121,7 @@ require('plugins/nvim-surround')
 require('plugins/nvim-treesitter')
 require('plugins/telescope')
 require('plugins/trouble')
+require('plugins/treesj')
 require('plugins/which-key')
 
 -- Load keymaps

@@ -17,15 +17,16 @@ vim.g.maplocalleader = ' '
 -- term_mode = "t"
 -- command_mode = "c"
 
--- Save
-keymap('n', '<D-space>', '<cmd> w<CR>', opts('Save document'))
-
 -- New Tab
 keymap('n', '<Leader>tt', '<cmd> tabnew<CR>', opts('New tab'))
 keymap('n', '<D-t>', '<cmd> tabnew<CR>', opts('New tab')) -- FIXME: Crutch, remove in favour of <Leader>tt
 
 -- Set wrap / unwrap
 keymap('n', '<Leader>ww', '<cmd> set wrap!<CR>', opts('Toggle text wrapping'))
+
+-- treesj (splitjoin.vim)
+keymap('n', '<Leader>ss', '<cmd> TSJSplit<CR>', opts('treesj: Split node under cursor'))
+keymap('n', '<Leader>sj', '<cmd> TSJJoin<CR>', opts('treesj: Join node under cursor'))
 
 -- Session (CWD session.vim) management
 keymap('n', '<Leader>sc', '<cmd> mksession! session.vim<CR>', opts('Write current session to ./session.vim'))

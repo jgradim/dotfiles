@@ -14,6 +14,8 @@ require('mason-lspconfig').setup({
     'sumneko_lua', -- Lua
     'marksman', -- Markdown
     'prismals', -- Prisma
+    'jedi_language_server', -- Python
+    'pyright', -- Python
     'rust_analyzer', -- Rust
     'sqlls', -- SQL
     'taplo', -- TOML
@@ -93,3 +95,5 @@ lspconfig.rust_analyzer.setup({
     cmd = "rustup run stable rust-analyzer"
   }
 })
+lspconfig.jedi_language_server.setup({})
+lspconfig.pyright.setup({})
