@@ -1,4 +1,5 @@
 --ignore-dir=deps
+--ignore-dir=dist
 --ignore-dir=coverage
 --ignore-dir=.next
 --ignore-dir=node_modules
