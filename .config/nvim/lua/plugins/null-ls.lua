@@ -22,6 +22,14 @@ require('null-ls').setup({
     -- Text / Markdown
     -- require("null-ls").builtins.diagnostics.markdownlint,
     -- require("null-ls").builtins.completion.spell,
+
+    -- Python
+    require("null-ls").builtins.formatting.isort,
+    require("null-ls").builtins.formatting.black,
+
+    -- YAML
+    require("null-ls").builtins.diagnostics.yamllint,
+    require("null-ls").builtins.formatting.yamlfmt,
   },
 
   -- on_attach = function(client, bufnr)

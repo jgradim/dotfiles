@@ -25,24 +25,25 @@ keymap('n', '<D-t>', '<cmd> tabnew<CR>', opts('New tab')) -- FIXME: Crutch, remo
 keymap('n', '<Leader>ww', '<cmd> set wrap!<CR>', opts('Toggle text wrapping'))
 
 -- treesj (splitjoin.vim)
-keymap('n', '<Leader>ss', '<cmd> TSJSplit<CR>', opts('treesj: Split node under cursor'))
-keymap('n', '<Leader>sj', '<cmd> TSJJoin<CR>', opts('treesj: Join node under cursor'))
+keymap('n', '<Leader>ss', '<cmd> TSJSplit<CR>', opts('[TreeSJ]: Split node under cursor'))
+keymap('n', '<Leader>sj', '<cmd> TSJJoin<CR>', opts('[TreeSJ]: Join node under cursor'))
 
 -- Session (CWD session.vim) management
 keymap('n', '<Leader>sc', '<cmd> mksession! session.vim<CR>', opts('Write current session to ./session.vim'))
 keymap('n', '<Leader>sr', '<cmd> source session.vim<CR>', opts('Restore session from ./session.vim'))
 
 -- LSP
-keymap('n', '<Leader>lr', '<cmd> LspRestart<CR>', opts('Restart LSP server'))
-keymap('n', '<Leader>le', '<cmd> TroubleToggle document_diagnostics<CR>', opts('Toggle document diagnostic messages'))
-keymap('n', '<Leader>lw', '<cmd> TroubleToggle workspace_diagnostics<CR>', opts('Toggle workspace diagnostic messages'))
-keymap('n', '<Leader>lf', '<cmd> lua vim.lsp.buf.format()<CR>', opts('Format current file with null-ls'))
+keymap('n', '<Leader>lr', '<cmd> LspRestart<CR>', opts('[LSP] Restart server'))
+keymap('n', '<Leader>le', '<cmd> TroubleToggle document_diagnostics<CR>', opts('[LSP] Toggle document diagnostic messages'))
+keymap('n', '<Leader>lw', '<cmd> TroubleToggle workspace_diagnostics<CR>', opts('[LSP] Toggle workspace diagnostic messages'))
+keymap('n', '<Leader>lf', '<cmd> lua vim.lsp.buf.format()<CR>', opts('[LSP] Format current file with null-ls'))
 -- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, opts)
 
 -- telescope
-keymap('n', '<C-p>', '<cmd> Telescope find_files<CR>', opts('Find files in current workspace')) -- FIXME: Crutch, remove in favour of <Leader>ff
-keymap('n', '<Leader>ff', '<cmd> Telescope find_files<CR>', opts('Find files in current workspace'))
-keymap('n', '<Leader>fw', '<cmd> Telescope live_grep<CR>', opts('Find search term in files in current workspace'))
+keymap('n', '<C-p>', '<cmd> Telescope find_files<CR>', opts('[Telescope] Find files in current workspace')) -- FIXME: Crutch, remove in favour of <Leader>ff
+keymap('n', '<Leader>fd', '<cmd> Telescope lsp_definitions<CR>', opts('[Telescope] Go to definition'))
+keymap('n', '<Leader>ff', '<cmd> Telescope find_files<CR>', opts('[Telescope] Find files in current workspace'))
+keymap('n', '<Leader>fw', '<cmd> Telescope live_grep<CR>', opts('[Telescope] Find search term in workspace'))
 
 -- trouble
 
