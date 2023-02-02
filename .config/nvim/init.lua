@@ -47,6 +47,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-abolish'                            -- :Subvert et al
   use 'tpope/vim-eunuch'                             -- :Move, :Rename et al
   use 'Wansmer/treesj'                               -- splitjoin.vim for neovim
+  use 'mattn/emmet-vim'                              -- HTML zencoding
 
   -- Linting, formatting
   use 'jose-elias-alvarez/null-ls.nvim'              -- Linters, formatters
