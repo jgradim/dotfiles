@@ -16,6 +16,10 @@ require('null-ls').setup({
     require("null-ls").builtins.diagnostics.jsonlint,
     require("null-ls").builtins.formatting.prettier,
 
+    -- Terraform
+    require("null-ls").builtins.diagnostics.terraform_validate,
+    require("null-ls").builtins.formatting.terraform_fmt,
+
     -- Rust
     require("null-ls").builtins.formatting.rustfmt,
 

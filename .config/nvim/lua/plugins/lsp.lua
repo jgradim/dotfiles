@@ -11,7 +11,7 @@ require('mason-lspconfig').setup({
     'html', -- HTML
     'jsonls', -- JSON
     'tsserver', -- Javascript / TypeScript
-    'sumneko_lua', -- Lua
+    'lua_ls', -- Lua
     'marksman', -- Markdown
     'prismals', -- Prisma
     'jedi_language_server', -- Python
@@ -81,15 +81,7 @@ lspconfig.jsonls.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.prismals.setup({})
 lspconfig.terraformls.setup({})
-lspconfig.sumneko_lua.setup({
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      },
-    },
-  },
-})
+lspconfig.lua_ls.setup({})
 lspconfig.rust_analyzer.setup({
   settings = {
     cmd = "rustup run stable rust-analyzer"
