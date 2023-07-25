@@ -33,12 +33,5 @@ require('nvim-treesitter.configs').setup({
     'yaml',
   },
   highlight = { enable = true },
-  indent = { enable = true },
+  -- indent = { enable = true },
 })
-
-vim.filetype.add {
-  extension = {
-    tf = 'hcl',
-    tfvars = 'hcl',
-  }
-}

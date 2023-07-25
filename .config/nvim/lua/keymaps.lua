@@ -4,11 +4,6 @@ end
 
 local keymap = vim.api.nvim_set_keymap
 
--- Remap <Space> as leader key
-keymap('', '<Space>', '<Nop>', opts())
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 ---- Modes
 -- normal_mode = "n"
 -- insert_mode = "i"
@@ -65,8 +60,7 @@ vim.keymap.set({ 'n', 'i' }, '<D-->', function() ChangeGuiFontSize(-1) end, opts
 vim.keymap.set({ 'n', 'i' }, '<D-0>', function() ChangeGuiFontSize(0) end, opts())
 
 -- Allow clipboard copy paste in neovim
-vim.g.neovide_input_use_logo = 1
-keymap('', '<D-v>', '+p<CR>', opts())
-keymap('!', '<D-v>', '<C-R>+', opts())
-keymap('t', '<D-v>', '<C-R>+', opts())
-keymap('v', '<D-v>', '<C-R>+', opts())
+-- keymap('', '<D-v>', '+p<CR>', opts())
+-- keymap('!', '<D-v>', '<C-R>+', opts())
+-- keymap('t', '<D-v>', '<C-R>+', opts())
+-- keymap('v', '<D-v>', '<C-R>+', opts())

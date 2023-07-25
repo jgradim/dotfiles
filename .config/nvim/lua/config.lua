@@ -1,12 +1,20 @@
 -- General options
-vim.o.number = true -- always show line numbers
+vim.o.number = true                  -- always show line numbers
 vim.o.backspace = 'indent,eol,start' -- backspace on everything
-vim.o.encoding = 'utf-8' -- default encoding for all files
-vim.o.showcmd = true -- display incomplete commands
-vim.o.showmode = true -- show current mode
-vim.o.autoread = true -- Reload files changed outside vim
-vim.o.laststatus = 2 -- Always show the status line
+vim.o.encoding = 'utf-8'             -- default encoding for all files
+vim.o.showcmd = true                 -- display incomplete commands
+vim.o.showmode = true                -- show current mode
+vim.o.autoread = true                -- Reload files changed outside vim
+vim.o.laststatus = 2                 -- Always show the status line
 vim.o.signcolumn = 'yes'
+
+-- Leader
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Completion
+vim.o.completeopt = 'menuone,noselect'
 
 -- Tab settings
 vim.o.softtabstop = 2
@@ -20,13 +28,13 @@ vim.o.smartindent = true
 vim.o.smarttab = true
 
 -- Searching
-vim.o.hlsearch = true -- highlight searches
-vim.o.incsearch = true -- incremental search
+vim.o.hlsearch = true   -- highlight searches
+vim.o.incsearch = true  -- incremental search
 vim.o.ignorecase = true -- searches are case insensitive...
-vim.o.smartcase = true -- ... unless they contain at least one capital letter
+vim.o.smartcase = true  -- ... unless they contain at least one capital letter
 
 -- Whitespace
-vim.o.wrap = false -- don't wrap lines
+vim.o.wrap = false     -- don't wrap lines
 vim.o.linebreak = true -- wrap lines at convenient places
 
 -- Scrolling
@@ -42,6 +50,10 @@ vim.o.mouse = 'a'
 
 -- GUI settings
 vim.o.guifont = 'FiraCode Nerd Font:h13'
+
+-- Clipboard
+vim.g.neovide_input_use_logo = 1
+vim.o.clipboard = "unnamedplus"
 
 FONT_SIZE = 13
 ChangeGuiFontSize = function(delta)
@@ -63,3 +75,20 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
   command = "if mode() != 'c' | checktime | endif",
   pattern = { "*" },
 })
+
+-- Custom filetypes
+-- vim.api.nvim_create_autocmd(
+--   {
+--     "BufNewFile",
+--     "BufRead",
+--   },
+--   {
+--     pattern = "*.tf",
+--     callback = function()
+--       if vim.fn.search("{{.\\+}}", "nw") ~= 0 then
+--         local buf = vim.api.nvim_get_current_buf()
+--         vim.api.nvim_buf_set_option(buf, "filetype", "hcl")
+--       end
+--     end
+--   }
+-- )

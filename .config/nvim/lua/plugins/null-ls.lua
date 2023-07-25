@@ -2,50 +2,34 @@
 
 -- local autogroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
-require('null-ls').setup({
-  sources = {
-    -- Bash
-    require('null-ls').builtins.diagnostics.shellcheck,
+function config_null_ls ()
+  local null_ls = require('null-ls')
 
-    -- Lua
-    -- require("null-ls").builtins.formatting.stylua,
+  null_ls.setup({
+    sources = {
+      -- Bash
+      null_ls.builtins.diagnostics.shellcheck,
 
-    -- JS, TS, JSON
-    require("null-ls").builtins.diagnostics.eslint,
-    require("null-ls").builtins.diagnostics.tsc,
-    require("null-ls").builtins.diagnostics.jsonlint,
-    require("null-ls").builtins.formatting.prettier,
+      -- JS, TS, JSON
+      null_ls.builtins.diagnostics.eslint,
+      null_ls.builtins.diagnostics.tsc,
+      null_ls.builtins.diagnostics.jsonlint,
+      null_ls.builtins.formatting.prettier,
 
-    -- Terraform
-    require("null-ls").builtins.diagnostics.terraform_validate,
-    require("null-ls").builtins.formatting.terraform_fmt,
+      -- Terraform
+      null_ls.builtins.diagnostics.terraform_validate,
+      null_ls.builtins.formatting.terraform_fmt,
 
-    -- Rust
-    require("null-ls").builtins.formatting.rustfmt,
+      -- Rust
+      null_ls.builtins.formatting.rustfmt,
 
-    -- Text / Markdown
-    -- require("null-ls").builtins.diagnostics.markdownlint,
-    -- require("null-ls").builtins.completion.spell,
+      -- Python
+      null_ls.builtins.formatting.isort,
+      null_ls.builtins.formatting.black,
 
-    -- Python
-    require("null-ls").builtins.formatting.isort,
-    require("null-ls").builtins.formatting.black,
-
-    -- YAML
-    require("null-ls").builtins.diagnostics.yamllint,
-    require("null-ls").builtins.formatting.yamlfmt,
-  },
-
-  -- on_attach = function(client, bufnr)
-  --   if client.supports_method('textDocument/formatting') then
-  --     vim.api.nvim_clear_autocmds({ group = autogroup, buffer = bufnr })
-  --     vim.api.nvim_create_autocmd('BufWritePre', {
-  --       group = autogroup,
-  --       buffer = bufnr,
-  --       callback = function()
-  --         vim.lsp.buf.format({ bufnr = bufnr })
-  --       end,
-  --     })
-  --   end
-  -- end
-})
+      -- YAML
+      null_ls.builtins.diagnostics.yamllint,
+      null_ls.builtins.formatting.yamlfmt,
+    },
+  })
+end
