@@ -41,7 +41,9 @@ keymap('n', '<Leader>fd', '<cmd> Telescope lsp_definitions<CR>', opts('[Telescop
 keymap('n', '<Leader>ff', '<cmd> Telescope find_files<CR>', opts('[Telescope] Find files in current workspace'))
 keymap('n', '<Leader>fw', '<cmd> Telescope live_grep<CR>', opts('[Telescope] Find search term in workspace'))
 
--- trouble
+-- Copy / paste to / from system clipboard w/ <Leader>c / <Leader>v
+vim.keymap.set({ 'v', 'x'}, '<Leader>c', '"*y<CR>', opts('Copy visual selection to system clipboard'))
+keymap('n', '<Leader>v', '<cmd> set paste<CR>"*p:set nopaste<CR>', opts('Paste from system clipboard'))
 
 -- Cursor movement with cmd key (Mac OS)
 keymap('n', '<D-left>', 'b', opts('motion: b'))
@@ -61,7 +63,7 @@ vim.keymap.set({ 'n', 'i' }, '<D-->', function() ChangeGuiFontSize(-1) end, opts
 vim.keymap.set({ 'n', 'i' }, '<D-0>', function() ChangeGuiFontSize(0) end, opts())
 
 -- Allow clipboard copy paste in neovim
--- keymap('', '<D-v>', '+p<CR>', opts())
--- keymap('!', '<D-v>', '<C-R>+', opts())
--- keymap('t', '<D-v>', '<C-R>+', opts())
--- keymap('v', '<D-v>', '<C-R>+', opts())
+keymap('', '<D-v>', '+p<CR>', opts())
+keymap('!', '<D-v>', '<C-R>+', opts())
+keymap('t', '<D-v>', '<C-R>+', opts())
+keymap('v', '<D-v>', '<C-R>+', opts())

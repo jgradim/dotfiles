@@ -45,15 +45,14 @@ vim.o.swapfile = false
 vim.o.backup = false
 vim.o.wb = false
 
+-- Clipboard
+vim.o.clipboard = "unnamedplus"
+
 -- Mouse/trackpad scrolling in terminal Vim
 vim.o.mouse = 'a'
 
 -- GUI settings
 vim.o.guifont = 'FiraCode Nerd Font:h13'
-
--- Clipboard
-vim.g.neovide_input_use_logo = 1
-vim.o.clipboard = "unnamedplus"
 
 FONT_SIZE = 13
 ChangeGuiFontSize = function(delta)
@@ -92,3 +91,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 --     end
 --   }
 -- )
+-- Neovide setup
+if vim.g.neovide then
+  vim.g.neovide_scroll_animation_length = 0.1
+
+  -- Clipboard
+  vim.g.neovide_input_use_logo = 1
+end
