@@ -73,8 +73,8 @@ alias ls="ls -G"
 alias ll="ls -lhF"
 alias aseprite=/Applications/Aseprite.app/Contents/MacOS/aseprite
 alias pico8=/Applications/PICO-8.app/Contents/MacOS/pico8
-alias mvim="neovide --multigrid"
-alias nv="neovide --multigrid"
+alias nv="neovide"
+alias tf="terraform"
 
 #
 # powerlevel10k theme
@@ -96,7 +96,7 @@ done
 # Homebrew
 #
 export HOMEBREW_NO_ANALYTICS=1
-export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/bin:/opt/homebrew/bin:$PATH"
 
 #
 # android
