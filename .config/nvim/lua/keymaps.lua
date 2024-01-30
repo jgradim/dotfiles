@@ -31,7 +31,8 @@ keymap('n', '<Leader>sr', '<cmd> source session.vim<CR>', opts('Restore session 
 keymap('n', '<Leader>lr', '<cmd> LspRestart<CR>', opts('[LSP] Restart server'))
 keymap('n', '<Leader>le', '<cmd> TroubleToggle document_diagnostics<CR>', opts('[LSP] Toggle document diagnostic messages'))
 keymap('n', '<Leader>lw', '<cmd> TroubleToggle workspace_diagnostics<CR>', opts('[LSP] Toggle workspace diagnostic messages'))
-keymap('n', '<Leader>lf', '<cmd> lua vim.lsp.buf.format()<CR>', opts('[LSP] Format current file with null-ls'))
+-- keymap('n', '<Leader>lf', '<cmd> lua vim.lsp.buf.format()<CR>', opts('[LSP] Format current file with null-ls'))
+keymap('n', '<Leader>lf', '<cmd> lua require("conform").format()<CR>', opts('[LSP] Format current file with conform.nvim'))
 -- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, opts)
 
 -- telescope

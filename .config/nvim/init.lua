@@ -36,16 +36,17 @@ require('keymaps')
 require('lsp')
 
 require('plugins/cmp')
-require('plugins/treesitter')
+require('plugins/conform')
 require('plugins/gitsigns')
 require('plugins/lspconfig')
 require('plugins/lualine')
 require('plugins/mason')
+require('plugins/noice')
 require('plugins/telescope')
+require('plugins/treesitter')
 
 require('lazy').setup({
   --------------------------------------------- Themes
-
   {
     'shaunsingh/nord.nvim',
     lazy = false,
@@ -179,8 +180,23 @@ require('lazy').setup({
   'L3MON4D3/LuaSnip',
 
   ------------------------------- Linting, formatting
+
   {
-    'jose-elias-alvarez/null-ls.nvim',              -- Linters, formatters
-    config = config_null_ls,
+    'stevearc/conform.nvim',
+    config = config_conform,
+  },
+
+  ------------------------------- Noice
+
+  'MunifTanjim/nui.nvim',
+  'rcarriga/nvim-notify',
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
+    },
+    config = config_noice
   },
 })
