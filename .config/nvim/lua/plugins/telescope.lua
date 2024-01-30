@@ -10,6 +10,7 @@ function config_telescope()
       initial_mode = "insert",
       selection_strategy = "reset",
       sorting_strategy = "ascending",
+      hidden = true,
       layout_strategy = "horizontal",
       layout_config = {
         horizontal = {

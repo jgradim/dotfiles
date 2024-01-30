@@ -1,7 +1,6 @@
 function config_lualine ()
   require('lualine').setup({
     options = {
-      -- theme = 'wombat',
       theme = 'nord',
     },
     sections = {

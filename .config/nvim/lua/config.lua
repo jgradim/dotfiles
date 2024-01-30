@@ -66,7 +66,6 @@ end
 
 -- Autoreload modified files
 vim.autoread = true
-vim.o.autoread = true
 -- auto-reload files when modified externally
 -- https://unix.stackexchange.com/a/383044
 vim.o.autoread = true
@@ -75,22 +74,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
   pattern = { "*" },
 })
 
--- Custom filetypes
--- vim.api.nvim_create_autocmd(
---   {
---     "BufNewFile",
---     "BufRead",
---   },
---   {
---     pattern = "*.tf",
---     callback = function()
---       if vim.fn.search("{{.\\+}}", "nw") ~= 0 then
---         local buf = vim.api.nvim_get_current_buf()
---         vim.api.nvim_buf_set_option(buf, "filetype", "hcl")
---       end
---     end
---   }
--- )
 -- Neovide setup
 if vim.g.neovide then
   vim.g.neovide_scroll_animation_length = 0.1

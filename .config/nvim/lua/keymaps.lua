@@ -38,8 +38,8 @@ keymap('n', '<Leader>lf', '<cmd> lua require("conform").format()<CR>', opts('[LS
 -- telescope
 keymap('n', '<C-p>', '<cmd> Telescope find_files<CR>', opts('[Telescope] Find files in current workspace')) -- FIXME: Crutch, remove in favour of <Leader>ff
 keymap('n', '<Leader>fd', '<cmd> Telescope lsp_definitions<CR>', opts('[Telescope] Go to definition'))
-keymap('n', '<Leader>ff', '<cmd> Telescope find_files<CR>', opts('[Telescope] Find files in current workspace'))
-keymap('n', '<Leader>fw', '<cmd> Telescope live_grep<CR>', opts('[Telescope] Find search term in workspace'))
+keymap('n', '<Leader>ff', '<cmd> Telescope find_files hidden=true<CR>', opts('[Telescope] Find files in current workspace'))
+keymap('n', '<Leader>fw', '<cmd> Telescope live_grep hidden=true<CR>', opts('[Telescope] Find search term in workspace'))
 
 -- Copy / paste to / from system clipboard w/ <Leader>c / <Leader>v
 vim.keymap.set({ 'v', 'x'}, '<Leader>c', '"*y<CR>', opts('Copy visual selection to system clipboard'))
@@ -54,8 +54,8 @@ keymap('i', '<D-right>', 'w', opts('motion: w'))
 -- Arrow navigation in command line
 -- cnoremap <C-P> <Up>
 -- cnoremap <C-N> <Down>
--- keymap('c', '<C-P>', '<Up>', opts)
--- keymap('c', '<C-N>', '<Down>', opts)
+-- keymap('c', '<C-P>', '<Up>', opts())
+-- keymap('c', '<C-N>', '<Down>', opts())
 
 -- increase / decrease / reset font size
 vim.keymap.set({ 'n', 'i' }, '<D-=>', function() ChangeGuiFontSize(1) end, opts())

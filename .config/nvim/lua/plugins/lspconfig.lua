@@ -39,5 +39,4 @@ function config_lspconfig ()
   lspconfig.jedi_language_server.setup({})
   lspconfig.pyright.setup({})
   lspconfig.gdscript.setup({})
-  lspconfig.yamlls.setup({})
 end
