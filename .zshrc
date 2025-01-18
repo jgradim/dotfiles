@@ -77,13 +77,12 @@ alias nv="neovide"
 alias tf="terraform"
 
 #
-# powerlevel10k theme
-# https://github.com/romkatv/powerlevel10k#manual
+# starship.rs prompt
 #
-source ~/.powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# install
+#   brew install starship
+#
+eval "$(starship init zsh)"
 
 #
 # custom scripts

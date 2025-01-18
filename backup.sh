@@ -3,6 +3,7 @@ files=(
   .config/nvim/init.lua
   .config/kitty/kitty.conf
   .config/kitty/current-theme.conf
+  .config/starship.toml
   .gitconfig
   .gitignore
   .gvimrc
