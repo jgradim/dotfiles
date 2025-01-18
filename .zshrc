@@ -60,11 +60,8 @@ unsetopt CLOBBER            # Don't overwrite existing files with > and >>.
 # Editors
 #
 export EDITOR="nvim"
-export VISUAL="neovide --multigrid"
+export VISUAL="neovide --fork"
 export PAGER="less"
-
-# Neovide multigrid (better mouse / floating window support)
-export NEOVIDE_MUTIGRID=1
 
 #
 # Aliases
@@ -73,73 +70,34 @@ alias ls="ls -G"
 alias ll="ls -lhF"
 alias aseprite=/Applications/Aseprite.app/Contents/MacOS/aseprite
 alias pico8=/Applications/PICO-8.app/Contents/MacOS/pico8
-alias nv="neovide"
+alias nv="neovide --fork"
+alias nvconf="neovide ~/.config/nvim/ --fork -- --cmd ':cd ~/.config/nvim/'"
 alias tf="terraform"
+alias k="kubectl"
+alias dc="docker compose"
 
 #
 # starship.rs prompt
 #
-# install
-#   brew install starship
+# brew install starship
 #
 eval "$(starship init zsh)"
 
 #
-# custom scripts
+# FZF
 #
-for f in ${HOME}/.scripts/*.sh; do
-  source $f
-done
+# brew install fzf
+#
+source <(fzf --zsh)
 
 #
 # Homebrew
 #
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$HOME/bin:/opt/homebrew/bin:$PATH"
-
-#
-# android
-#
-# install
-#   brew cask install android-sdk
-#
-export ANDROID_HOME=${HOME}/usr/local/share/android-sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-#
-# direnv
-#
-# install
-#   brew install direnv
-#
-# eval "$(direnv hook zsh)"
-
-#
-# History in iex
-#
-export ERL_AFLAGS="-kernel shell_history enabled"
 
 #
 # asdf-vm
 #
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-#
-# kubectl
-#
-# source <(kubectl completion zsh)
-alias k=kubectl
-
-#
-# Syntax highlighting for commands
-#
-# instal
-#   brew install zsh-syntax-highlighting
-#
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-#
-# gcloud
-#
-#export USE_GKE_GCLOUD_AUTH_PLUGIN=True
