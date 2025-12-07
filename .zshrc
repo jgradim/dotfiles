@@ -67,7 +67,7 @@ export PAGER="less"
 # Aliases
 #
 alias ls="ls -G"
-alias ll="ls -lhF"
+alias ll="ls -alhF"
 alias aseprite=/Applications/Aseprite.app/Contents/MacOS/aseprite
 alias pico8=/Applications/PICO-8.app/Contents/MacOS/pico8
 alias nv="neovide --fork"
