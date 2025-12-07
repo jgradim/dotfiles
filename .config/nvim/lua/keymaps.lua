@@ -4,6 +4,17 @@ end
 
 local keymap = vim.api.nvim_set_keymap
 
+local virtual_lines = false
+local toggle_virtual_lines = function ()
+  virtual_lines = not virtual_lines
+
+  if virtual_lines then
+    vim.diagnostic.config({ virtual_lines = { current_line = false } })
+  else
+    vim.diagnostic.config({ virtual_lines = false })
+  end
+end
+
 ---- Modes
 -- normal_mode = "n"
 -- insert_mode = "i"
@@ -29,8 +40,8 @@ keymap('n', '<Leader>sr', '<cmd> source session.vim<CR>', opts('Restore session 
 
 -- LSP
 keymap('n', '<Leader>lr', '<cmd> LspRestart<CR>', opts('[LSP] Restart server'))
-keymap('n', '<Leader>le', '<cmd> Trouble diagnostics toggle filter.buf=0<CR>', opts('[LSP] Toggle document diagnostic messages'))
-keymap('n', '<Leader>lw', '<cmd> Trouble diagnostics toggle<CR>', opts('[LSP] Toggle workspace diagnostic messages'))
+
+vim.keymap.set('n', '<leader>le', toggle_virtual_lines)
 
 -- Formatting
 keymap('n', '<Leader>lf', '<cmd> lua require("conform").format()<CR>', opts('[LSP] Format current file with conform.nvim'))

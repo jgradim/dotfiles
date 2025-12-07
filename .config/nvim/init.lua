@@ -82,9 +82,13 @@ require('lazy').setup({
 
   {
     "ibhagwan/fzf-lua",                                   -- Fuzzy finder for files, words, etc
-    -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {}
+    dependencies = { "nvim-tree/nvim-web-devicons" },     -- Fuzzy finder icon support
+    opts = function()
+      local fzf = require("fzf-lua")
+
+      fzf.config.defaults.actions.files["ctrl-x"] = fzf.actions.file_split
+      fzf.config.defaults.actions.files["ctrl-v"] = fzf.actions.file_vsplit
+    end,
   },
   {
     'akinsho/bufferline.nvim',
@@ -112,80 +116,85 @@ require('lazy').setup({
       },
     }
   },
-  {
-    'folke/trouble.nvim',
-    -- cmd = 'Trouble',
-    opts = {},
-  },
 
   ----------------------------------------------------------------------------- Completion, LSP
 
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'WhoIsSethDaniel/mason-tool-installer.nvim',
   'neovim/nvim-lspconfig',
+
+  'williamboman/mason.nvim',
+  'WhoIsSethDaniel/mason-tool-installer.nvim',
+
   {
     'saghen/blink.cmp',
+    -- optional: provides snippets for the snippet source
+    dependencies = { 'rafamadriz/friendly-snippets' },
 
     -- use a release tag to download pre-built binaries
-    version = '*',
+    version = '1.*',
+    -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+    -- build = 'cargo build --release',
+    -- If you use nix, you can build from source using latest nightly rust with:
+    -- build = 'nix run .#build-plugin',
 
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
-      -- 'default' for mappings similar to built-in completion
-      -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-      -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-      -- See the full "keymap" documentation for information on defining your own keymap.
+      -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+      -- 'super-tab' for mappings similar to vscode (tab to accept)
+      -- 'enter' for enter to accept
+      -- 'none' for no mappings
+      --
+      -- All presets have the following mappings:
+      -- C-space: Open menu or open docs if already open
+      -- C-n/C-p or Up/Down: Select next/previous item
+      -- C-e: Hide menu
+      -- C-k: Toggle signature help (if signature.enabled = true)
+      --
+      -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = { preset = 'enter' },
 
       appearance = {
-        -- Sets the fallback highlight groups to nvim-cmp's highlight groups
-        -- Useful for when your theme doesn't support blink.cmp
-        -- Will be removed in a future release
-        use_nvim_cmp_as_default = true,
-        -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+        -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = 'mono'
       },
 
+      menu = {
+        auto_show = true,
+      },
+
+      -- (Default) Only show the documentation popup when manually triggered
       completion = {
+        documentation = { auto_show = true, auto_show_delay = 200 },
         list = { selection = { preselect = true, auto_insert = false } },
-
-        menu = {
-          draw = {
-            columns = {
-              { "label", "label_description", gap = 1 },
-              { "kind_icon", "kind", gap = 1 },
-            }
-          }
-        },
-
-        -- Show documentation when selecting a completion item
-        documentation = { auto_show = true, auto_show_delay_ms = 200 },
-
-        -- Display a preview of the selected item on the current line
-        ghost_text = { enabled = false },
       },
 
+      -- Default list of enabled providers defined so that you can extend it
+      -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        -- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
-        -- Disable cmdline completions
-        cmdline = {},
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'omni' },
       },
 
-      -- Use a preset for snippets, check the snippets documentation for more information
-      -- snippets = { preset = 'default' | 'luasnip' | 'mini_snippets' },
+      -- Disable cmdline completion
+      cmdline = { enabled = false },
 
-      -- Experimental signature help support
-      signature = { enabled = true },
+      -- Display a preview of the selected item on the current line
+      ghost_text = { enabled = true },
+
+      -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
+      -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
+      -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
+      --
+      -- See the fuzzy documentation for more information
+      fuzzy = { implementation = "prefer_rust_with_warning" }
     },
-    opts_extend = { 'sources.default' }
+    opts_extend = { "sources.default" }
   },
 
   ----------------------------------------------------------------------------- Linting, formatting
 
-  -- 'mfussenegger/nvim-lint',
   'stevearc/conform.nvim',
+  'mfussenegger/nvim-lint',
 })
 
 -------------------------------------------------------------------------------
@@ -193,5 +202,5 @@ require('lazy').setup({
 -------------------------------------------------------------------------------
 
 require('lsp')
--- require('lint')
 require('fmt')
+require('linters')

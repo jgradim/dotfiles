@@ -42,19 +42,13 @@ require('nvim-treesitter.configs').setup({
 -------------------------------------------------------------------------------
 
 require('mason').setup()
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    -- "ast_grep",  -- C#, C++, C, CSS, Dart, Go, HTML, Java, Javascript, JSX, Kotlin
-    "bashls",    -- shell script
-    "dockerls",  -- Dockerfile
-    "eslint",    -- JS / TS
-    "lua_ls",    -- Lua
-    "ts_ls",     -- TypeScript
-  },
-})
 require('mason-tool-installer').setup({
   ensure_installed = {
     'eslint_d',
+    'lua-language-server',
+    'prettierd',
+    'stylua',
+    'typescript-language-server',
   }
 })
 
@@ -62,31 +56,33 @@ require('mason-tool-installer').setup({
 --- Configure completion and LSP sources
 -------------------------------------------------------------------------------
 
-local blink = require('blink.cmp')
-local lspconfig = require('lspconfig')
+vim.diagnostic.config({
+  virtual_text = {
+    current_line = false,
+  },
+})
 
-lspconfig.util.default_config = vim.tbl_deep_extend(
-  'force',
-  lspconfig.util.default_config,
-  {
-    flags = {
-      debounce_text_changes = 150,
-    },
-    capabilities = blink.get_lsp_capabilities()
-  }
-)
+vim.lsp.config('*', {
+  flags = {
+    debounce_text_changes = 150,
+  },
+})
 
-lspconfig.bashls.setup({})
-lspconfig.docker.setup({})
-lspconfig.eslint.setup({})
--- lspconfig.gdscript.setup({})
-lspconfig.lua_ls.setup({
+vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
-      diagnostics = {
-        globals = { 'vim' }
+      workspace = {
+        library = {
+          vim.env.VIMRUNTIME,
+        }
       }
     }
   }
 })
-lspconfig.ts_ls.setup({})
+vim.lsp.enable("lua_ls")
+
+vim.lsp.enable("bashls")
+vim.lsp.enable("dockerls")
+vim.lsp.enable("eslint")
+vim.lsp.enable("ts_ls")
+
