@@ -1,0 +1,5 @@
+keybind = ctrl+shift+w=new_split:up
+keybind = ctrl+shift+a=new_split:left
+keybind = ctrl+shift+s=new_split:down
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+d=close_surface

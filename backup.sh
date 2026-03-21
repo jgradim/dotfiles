@@ -1,5 +1,6 @@
 files=(
   .ackrc
+  .config/ghostty/ghostty.config
   .config/nvim/init.lua
   .config/kitty/kitty.conf
   .config/kitty/current-theme.conf
@@ -17,6 +18,7 @@ files=(
 
 folders=(
   .config/nvim
+  .config/ghostty
 )
 
 [ -d .vim ] || mkdir .vim
