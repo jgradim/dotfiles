@@ -13,5 +13,7 @@ conform.setup({
     javascriptreact = tsx_jsx_linters,
     typescript = tsx_jsx_linters,
     typescriptreact = tsx_jsx_linters,
+    css = { 'stylelint' },
+    terraform = { 'terraform_fmt' },
   },
 })

@@ -28,6 +28,7 @@ require('nvim-treesitter.configs').setup({
     'regex',
     'scss',
     'sql',
+    'svelte',
     'toml',
     'tsx',
     'typescript',
@@ -44,11 +45,18 @@ require('nvim-treesitter.configs').setup({
 require('mason').setup()
 require('mason-tool-installer').setup({
   ensure_installed = {
-    'eslint_d',
-    'lua-language-server',
-    'prettierd',
-    'stylua',
     'typescript-language-server',
+    'eslint_d',
+    'prettierd',
+
+    'lua-language-server',
+    'stylua',
+
+    'stylelint',
+    'stylelint-lsp',
+
+    'pgformatter',
+    'postgres-language-server',
   }
 })
 
@@ -79,10 +87,13 @@ vim.lsp.config("lua_ls", {
     }
   }
 })
-vim.lsp.enable("lua_ls")
+vim.lsp.config("sql", {})
 
 vim.lsp.enable("bashls")
 vim.lsp.enable("dockerls")
 vim.lsp.enable("eslint")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("sql")
+vim.lsp.enable("stylelint_lsp")
+vim.lsp.enable("svelte")
 vim.lsp.enable("ts_ls")
-

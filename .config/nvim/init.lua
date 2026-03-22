@@ -60,6 +60,14 @@ require('lazy').setup({
   'tpope/vim-eunuch',                               -- :Move, :Rename, et al
   'mattn/emmet-vim',                                -- HTML zencoding
   {
+    'norcalli/nvim-colorizer.lua',                  -- hex color preview
+    opts = {
+      'typescript',
+      'javascript',
+      'css',
+    }
+  },
+  {
     'windwp/nvim-autopairs',                        -- Smart handling of pairs of quotes, brackets, etc
     event = 'InsertEnter',
     opts = {},
@@ -120,6 +128,7 @@ require('lazy').setup({
   ----------------------------------------------------------------------------- Completion, LSP
 
   'neovim/nvim-lspconfig',
+  'vim-scripts/dbext.vim',
 
   'williamboman/mason.nvim',
   'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -127,7 +136,7 @@ require('lazy').setup({
   {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
-    dependencies = { 'rafamadriz/friendly-snippets' },
+    -- dependencies = { 'rafamadriz/friendly-snippets' },
 
     -- use a release tag to download pre-built binaries
     version = '1.*',
@@ -159,27 +168,20 @@ require('lazy').setup({
         nerd_font_variant = 'mono'
       },
 
-      menu = {
-        auto_show = true,
-      },
-
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
-        documentation = { auto_show = true, auto_show_delay = 200 },
+        documentation = { auto_show = true },
         list = { selection = { preselect = true, auto_insert = false } },
       },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'omni' },
+        default = { 'lsp', 'path', 'buffer', 'omni' },
       },
 
       -- Disable cmdline completion
       cmdline = { enabled = false },
-
-      -- Display a preview of the selected item on the current line
-      ghost_text = { enabled = true },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
       -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
