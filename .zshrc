@@ -101,3 +101,10 @@ export PATH="$HOME/bin:/opt/homebrew/bin:$PATH"
 # asdf-vm
 #
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+#
+# custom methods
+#
+function converttomp3 () {
+  ffmpeg -i $1 -vn -ar 44100 -ac 2 -b:a 192k "$1.mp3"
+}
