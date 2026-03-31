@@ -197,6 +197,12 @@ require('lazy').setup({
 
   'stevearc/conform.nvim',
   'mfussenegger/nvim-lint',
+
+  ----------------------------------------------------------------------------- Syntax support
+  -- {
+  --   "bezhermoso/tree-sitter-ghostty",
+  --   build = "make nvim_install"
+  -- },
 })
 
 -------------------------------------------------------------------------------

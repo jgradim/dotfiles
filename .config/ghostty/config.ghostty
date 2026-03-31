@@ -1,5 +1,21 @@
+# Splits
 keybind = ctrl+shift+w=new_split:up
 keybind = ctrl+shift+a=new_split:left
 keybind = ctrl+shift+s=new_split:down
 keybind = ctrl+shift+d=new_split:right
+
+# MacOS only
+keybind = cmd+shift+w=new_split:up
+keybind = cmd+shift+a=new_split:left
+keybind = cmd+shift+s=new_split:down
+keybind = cmd+shift+d=new_split:right
+
+# Tab navigation
+keybind = cmd+alt+arrow_left=previous_tab
+keybind = cmd+alt+arrow_right=next_tab
+
+# Utility
 keybind = ctrl+d=close_surface
+
+# Behaviour
+quit-after-last-window-closed = true
