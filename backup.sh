@@ -25,7 +25,7 @@ folders=(
 [ -d .zsh ] || mkdir .zsh
 [ -d .config/nvim ] || mkdir -p .config/nvim
 [ -d .config/kitty ] || mkdir -p .config/kitty
-[ -d ~/.config/ghostty ] || mkdir -p ~/.config/ghostty
+[ -d ~/.config/ghostty ] || mkdir -p .config/ghostty
 
 for i in "${files[@]}"
 do

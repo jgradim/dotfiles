@@ -1,4 +1,3 @@
-
 files=(
   .ackrc
   .config/ghostty/config.ghostty
