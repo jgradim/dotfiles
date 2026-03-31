@@ -1,8 +1,10 @@
+
 #
 # Completions
 #
-fpath=(~/.zsh $fpath)
-fpath=(${ASDF_DIR}/completions $fpath)
+# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
 autoload -Uz compinit
 compinit
@@ -100,7 +102,7 @@ export PATH="$HOME/bin:/opt/homebrew/bin:$PATH"
 #
 # asdf-vm
 #
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 #
 # custom methods
