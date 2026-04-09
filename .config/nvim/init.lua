@@ -197,6 +197,7 @@ require('lazy').setup({
 
   'stevearc/conform.nvim',
   'mfussenegger/nvim-lint',
+  'junegunn/vim-easy-align',
 
   ----------------------------------------------------------------------------- Syntax support
   -- {
