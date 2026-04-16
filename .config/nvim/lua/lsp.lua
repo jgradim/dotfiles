@@ -1,41 +1,44 @@
 -------------------------------------------------------------------------------
 --- Install language parsers using TreeSitter
 -------------------------------------------------------------------------------
+local ts = require('nvim-treesitter')
 
-require('nvim-treesitter.configs').setup({
-  -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
-  ensure_installed = {
-    'bash',
-    'css',
-    'dockerfile',
-    'gdscript',
-    'git_config',
-    'git_rebase',
-    'gitattributes',
-    'gitcommit',
-    'gitignore',
-    'glsl',
-    'go',
-    'hcl',
-    'html',
-    'javascript',
-    'json',
-    'json5',
-    'lua',
-    'make',
-    'markdown',
-    'markdown_inline',
-    'regex',
-    'scss',
-    'sql',
-    'svelte',
-    'toml',
-    'tsx',
-    'typescript',
-    'vim',
-    'yaml',
-  },
-  highlight = { enable = true }
+ts.setup({})
+ts.install({
+  'bash',
+  'css',
+  'dockerfile',
+  'gdscript',
+  'git_config',
+  'git_rebase',
+  'gitattributes',
+  'gitcommit',
+  'gitignore',
+  'glsl',
+  'go',
+  'hcl',
+  'html',
+  'javascript',
+  'json',
+  'json5',
+  'lua',
+  'make',
+  'markdown',
+  'markdown_inline',
+  'regex',
+  'scss',
+  'sql',
+  'svelte',
+  'toml',
+  'tsx',
+  'typescript',
+  'vim',
+  'vue',
+  'yaml',
+})
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function() vim.treesitter.start() end,
 })
 
 -------------------------------------------------------------------------------

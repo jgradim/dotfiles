@@ -47,7 +47,9 @@ require('lazy').setup({
   { 'nvim-tree/nvim-web-devicons', lazy = false, opts = { default = true } },
   {
     'nvim-treesitter/nvim-treesitter',              -- Highlight, edit, and navigate code
+    lazy = false,
     build = ':TSUpdate',
+    branch = 'main',
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',  -- Additional textobjects for treesitter
