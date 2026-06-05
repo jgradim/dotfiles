@@ -29,6 +29,7 @@ ts.install({
   'scss',
   'sql',
   'svelte',
+  'terraform',
   'toml',
   'tsx',
   'typescript',
@@ -50,6 +51,7 @@ require('mason-tool-installer').setup({
   ensure_installed = {
     'typescript-language-server',
     'eslint_d',
+    'eslint-lsp',
     'prettierd',
 
     'lua-language-server',
@@ -60,6 +62,11 @@ require('mason-tool-installer').setup({
 
     'pgformatter',
     'postgres-language-server',
+
+    'terraform',
+    'terraform-ls',
+    'tflint',
+    'tfsec',
   }
 })
 
@@ -91,6 +98,8 @@ vim.lsp.config("lua_ls", {
   }
 })
 vim.lsp.config("sql", {})
+vim.lsp.config("ts_ls", {})
+vim.lsp.config("terraformls", {})
 
 vim.lsp.enable("bashls")
 vim.lsp.enable("dockerls")
@@ -100,3 +109,4 @@ vim.lsp.enable("sql")
 vim.lsp.enable("stylelint_lsp")
 vim.lsp.enable("svelte")
 vim.lsp.enable("ts_ls")
+vim.lsp.enable("terraformls")

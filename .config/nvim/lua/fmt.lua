@@ -1,9 +1,14 @@
 local conform = require('conform')
 
 local tsx_jsx_linters = {
-  'eslint_d',
   'prettierd',
-  stop_after_first = true,
+  'prettier',
+  'eslint_d',
+  -- stop_after_first = true,
+}
+
+local tf_linters = {
+  'terraform_fmt'
 }
 
 conform.setup({
@@ -14,6 +19,9 @@ conform.setup({
     typescript = tsx_jsx_linters,
     typescriptreact = tsx_jsx_linters,
     css = { 'stylelint' },
-    terraform = { 'terraform_fmt' },
+    terraform = tf_linters,
+    tf = tf_linters,
+    hcl = tf_linters,
+    ["terraform-vars"] = tf_linters,
   },
 })

@@ -81,3 +81,6 @@ if vim.g.neovide then
   -- Clipboard
   vim.g.neovide_input_use_logo = 1
 end
+
+-- Markdown
+vim.g.markdown_recommended_style = 0
